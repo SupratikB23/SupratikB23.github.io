@@ -3,103 +3,89 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name — Portfolio</title>
-  <meta name="description" content="Personal portfolio — projects, skills and contact." />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>Supratik — AI & ML Portfolio</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <style>
-    :root{
-      --bg:#0f1724; /* deep navy */
-      --card:#0b1220;
-      --muted:#9aa4b2;
-      --accent:#7c3aed; /* indigo */
+    :root {
+      --bg: #0f1724;
+      --card: #0b1220;
+      --muted: #9aa4b2;
+      --accent: #7c3aed;
       --glass: rgba(255,255,255,0.03);
       --glass-2: rgba(255,255,255,0.02);
-      --max-width:1100px;
-      --radius:14px;
-      color-scheme: dark;
+      --max-width: 1100px;
+      --radius: 14px;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;color:#e6eef8;background:linear-gradient(180deg,var(--bg),#081021);}
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; height: 100%; font-family: Inter, sans-serif; background: linear-gradient(180deg, var(--bg), #081021); color: #e6eef8; }
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 28px; }
+    header { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .logo { width: 52px; height: 52px; border-radius: 12px; background: linear-gradient(135deg, var(--accent), #06b6d4); display: flex; justify-content: center; align-items: center; font-weight: 700; color: white; }
+    nav a { color: var(--muted); text-decoration: none; margin-left: 18px; font-weight: 600; }
+    nav a:hover { color: white; }
+    .hero { display: grid; grid-template-columns: 1fr 420px; gap: 28px; align-items: center; padding: 36px 0; }
+    .intro { background: var(--card); padding: 28px; border-radius: var(--radius); box-shadow: 0 6px 24px rgba(2,6,23,0.6); }
+    h1 { font-size: clamp(26px, 3.6vw, 40px); margin: 0 0 8px; }
+    h1 .accent { background: linear-gradient(90deg, var(--accent), #06b6d4); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    p.lead { color: var(--muted); margin: 0 0 18px; line-height: 1.5; }
+    .cta { display: flex; gap: 12px; }
+    .btn { padding: 10px 16px; border-radius: 10px; background: transparent; border: 1px solid rgba(255,255,255,0.06); color: white; text-decoration: none; font-weight: 600; }
+    .btn.primary { background: linear-gradient(90deg, var(--accent), #06b6d4); box-shadow: 0 6px 18px rgba(124,58,237,0.14); }
+    .profile-card { background: linear-gradient(180deg, var(--glass), var(--glass-2)); border-radius: 16px; padding: 18px; }
+    .avatar { width: 100%; border-radius: 12px; overflow: hidden; height: 240px; background: linear-gradient(180deg, #061126, #0c1730); display: flex; justify-content: center; align-items: center; color: var(--muted); }
+    .meta { display: flex; justify-content: space-between; align-items: center; padding-top: 12px; }
+    .skills { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+    .pill { font-size: 13px; padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,0.03); color: var(--muted); }
 
-    .container{max-width:var(--max-width);margin:0 auto;padding:28px}
+    section.about { padding: 32px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .about-left { background: var(--card); padding: 20px; border-radius: 12px; line-height: 1.6; color: var(--muted); }
+    .about-left h2 { color: white; }
+    .about-right { display: flex; flex-direction: column; gap: 16px; }
+    .about-box { background: var(--card); padding: 18px; border-radius: 12px; box-shadow: 0 4px 14px rgba(2,6,23,0.5); }
+    .about-box h3 { margin: 0 0 8px; color: white; }
 
-    header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:700;color:white}
-    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
-    nav a:hover{color:white}
+    section.projects { padding: 32px 0; }
+    .projects-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .proj { background: var(--card); padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.02); }
+    .proj-title { font-weight: 700; margin: 8px 0; color: white; }
+    .proj-desc { color: var(--muted); font-size: 14px; }
+    .proj a { display: inline-block; margin-top: 12px; text-decoration: none; color: var(--accent); font-weight: 600; }
 
-    /* Hero */
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:36px 0}
-    .intro{background:var(--card);padding:28px;border-radius:var(--radius);box-shadow:0 6px 24px rgba(2,6,23,0.6)}
-    h1{font-size:clamp(26px,3.6vw,40px);margin:0 0 8px}
-    h1 .accent{background:linear-gradient(90deg,var(--accent),#06b6d4);-webkit-background-clip:text;background-clip:text;color:transparent}
-    p.lead{color:var(--muted);margin:0 0 18px;line-height:1.5}
-    .cta{display:flex;gap:12px}
-    .btn{padding:10px 16px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:white;text-decoration:none;font-weight:600}
-    .btn.primary{background:linear-gradient(90deg,var(--accent),#06b6d4);box-shadow:0 6px 18px rgba(124,58,237,0.14)}
+    section#skills { padding-top: 26px; }
+    .card { background: var(--card); padding: 18px; border-radius: 12px; }
+    .skill-list { display: flex; flex-wrap: wrap; gap: 10px; }
 
-    /* Card: profile */
-    .profile-card{background:linear-gradient(180deg,var(--glass),var(--glass-2));border-radius:16px;padding:18px}
-    .avatar{width:100%;border-radius:12px;overflow:hidden;height:240px;background:linear-gradient(180deg,#061126,#0c1730);display:flex;align-items:center;justify-content:center;color:var(--muted)}
-    .meta{display:flex;justify-content:space-between;align-items:center;padding-top:12px}
-    .meta .name{font-weight:700}
-    .skills{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-    .pill{font-size:13px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);color:var(--muted)}
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; }
+    .footer { padding: 28px 0; color: var(--muted); text-align: center; }
 
-    /* About Me */
-    section.about{padding:32px 0;display:grid;grid-template-columns:1fr 1fr;gap:20px}
-    .about-left{background:var(--card);padding:20px;border-radius:12px;line-height:1.6;color:var(--muted)}
-    .about-right{display:flex;flex-direction:column;gap:16px}
-    .about-box{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 4px 14px rgba(2,6,23,0.5)}
-    .about-box h3{margin:0 0 8px;color:white}
-
-    /* Projects */
-    section.projects{padding:32px 0}
-    .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .proj{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
-    .proj-title{font-weight:700;margin:8px 0}
-    .proj-desc{color:var(--muted);font-size:14px}
-    .proj a{display:inline-block;margin-top:12px;text-decoration:none;color:var(--accent);font-weight:600}
-
-    /* Skills + Contact */
-    .split{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
-    .card{background:var(--card);padding:18px;border-radius:12px}
-    .skill-list{display:flex;flex-wrap:wrap;gap:10px}
-
-    footer{padding:28px 0;color:var(--muted);text-align:center}
-
-    /* Responsive */
-    @media (max-width:980px){
-      .hero{grid-template-columns:1fr}
-      .projects-grid{grid-template-columns:repeat(2,1fr)}
-      .split{grid-template-columns:1fr}
-      section.about{grid-template-columns:1fr}
+    @media (max-width: 980px) {
+      .hero { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: repeat(2,1fr); }
+      .split { grid-template-columns: 1fr; }
+      section.about { grid-template-columns: 1fr; }
     }
-    @media (max-width:560px){
-      .projects-grid{grid-template-columns:1fr}
-      nav a{display:none}
-      .logo{width:46px;height:46px}
-      .avatar{height:180px}
+    @media (max-width: 560px) {
+      .projects-grid { grid-template-columns: 1fr; }
+      nav a { display: none; }
+      .logo { width: 46px; height: 46px; }
+      .avatar { height: 180px; }
     }
-
-    /* small utilities */
-    .muted{color:var(--muted)}
-    .grid-cols-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   </style>
 </head>
 <body>
   <div class="container">
     <header>
       <div class="brand">
-        <div class="logo">YN</div>
+        <div class="logo">S</div>
         <div>
-          <div style="font-weight:700">Your Name</div>
-          <div style="font-size:13px;color:var(--muted)">Frontend Developer • UI / UX • Open-source</div>
+          <div style="font-weight:700">Supratik</div>
+          <div style="font-size:13px;color:var(--muted)">AI / ML Enthusiast • Researcher • Open-source</div>
         </div>
       </div>
       <nav>
+        <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
@@ -109,61 +95,46 @@
     <main>
       <section class="hero">
         <div class="intro">
-          <h1>Hi — I'm <span class="accent">Your Name</span></h1>
-          <p class="lead">I build clean, accessible front-end experiences and polished static sites. I enjoy turning ideas into delightful, responsive websites.</p>
+          <h1>Hello — I’m <span class="accent">Supratik</span></h1>
+          <p class="lead">Undergraduate CS student specializing in AI & ML. I build deep learning models, contribute to open-source, and explore real-world ML applications.</p>
           <div class="cta">
             <a class="btn primary" href="#projects">See Projects</a>
-            <a class="btn" href="#contact">Hire me</a>
-          </div>
-
-          <div class="split" style="margin-top:22px">
-            <div class="card">
-              <h3 style="margin:0 0 8px">About</h3>
-              <p class="muted" style="margin:0">Replace this paragraph with 2–3 lines about you: what you do, what you love building, and the kind of work you want.</p>
-            </div>
-            <div class="card">
-              <h3 style="margin:0 0 8px">Quick Info</h3>
-              <div class="muted" style="font-size:14px">
-                <div>Location — Your City, Country</div>
-                <div>Available for freelance / full-time</div>
-              </div>
-            </div>
+            <a class="btn" href="#contact">Contact Me</a>
           </div>
         </div>
-
         <aside class="profile-card">
-          <div class="avatar">Replace with a photo (2000×1200) or SVG</div>
+          <div class="avatar">Your Photo Here</div>
           <div class="meta">
             <div>
-              <div class="name">Your Name</div>
-              <div class="muted" style="font-size:13px">Frontend Engineer</div>
+              <div class="name">Supratik</div>
+              <div class="muted" style="font-size:13px">AI / ML Researcher</div>
             </div>
-            <div style="text-align:right">
+            <div style="text-align: right;">
               <div style="font-weight:700">3+</div>
-              <div class="muted" style="font-size:13px">Years experience</div>
+              <div class="muted" style="font-size:13px">Years in AI / ML</div>
             </div>
           </div>
           <div class="skills">
-            <div class="pill">HTML</div>
-            <div class="pill">CSS</div>
-            <div class="pill">Responsive</div>
-            <div class="pill">Accessibility</div>
+            <div class="pill">Python</div>
+            <div class="pill">TensorFlow / PyTorch</div>
+            <div class="pill">Deep Learning</div>
+            <div class="pill">Signal Processing</div>
+            <div class="pill">Open Source</div>
           </div>
         </aside>
       </section>
 
-      <!-- ABOUT ME Section -->
-      <section class="about">
+      <section id="about" class="about">
         <div class="about-left">
           <h2>About Me</h2>
           <p>I am an undergraduate Computer Science student specializing in AI & ML at the Institute of Engineering and Management, Kolkata. Passionate about building intelligent systems, deep learning models, and contributing to impactful open-source projects.</p>
-          <p>My journey in artificial intelligence is driven by curiosity and the desire to solve real-world problems through innovative machine learning solutions.</p>
+          <p>My journey in artificial intelligence is driven by curiosity and the desire to solve real-world problems through innovative machine learning solutions. I specialize in deep learning architectures, particularly in areas like seizure prediction and real-time signal processing.</p>
           <p>When I'm not coding or researching, you'll find me contributing to open-source projects, participating in hackathons, or exploring the latest developments in AI and machine learning.</p>
         </div>
         <div class="about-right">
           <div class="about-box">
             <h3>1. AI Research</h3>
-            <p class="muted">Currently writing a review paper on Scientific ML, developing a new RL Project & working on Human-Computer Interaction</p>
+            <p class="muted">Currently writing a review paper on Scientific ML, developing a new RL project & working on Human-Computer Interaction</p>
           </div>
           <div class="about-box">
             <h3>2. Open Source</h3>
@@ -181,81 +152,80 @@
           <h2 style="margin:0">Selected Projects</h2>
           <a href="#" class="muted">View all on GitHub →</a>
         </div>
-
         <div class="projects-grid">
+          <!-- Replace each project block with real ones -->
           <article class="proj">
-            <div style="height:120px;border-radius:8px;overflow:hidden;background:linear-gradient(135deg,#071428,#0b1b33);display:flex;align-items:center;justify-content:center;color:var(--muted)">Project image</div>
-            <div class="proj-title">Project One</div>
-            <div class="proj-desc">Short description of the project, tech used, and the problem it solves.</div>
+            <div style="height:120px; border-radius:8px; overflow:hidden; background: linear-gradient(135deg, #071428, #0b1b33); display:flex; align-items:center; justify-content:center; color: var(--muted);">Project Image</div>
+            <div class="proj-title">Project A</div>
+            <div class="proj-desc">Short description of Project A.</div>
             <a href="#">Live →</a>
           </article>
-
           <article class="proj">
-            <div style="height:120px;border-radius:8px;overflow:hidden;background:linear-gradient(135deg,#041024,#0a1326);display:flex;align-items:center;justify-content:center;color:var(--muted)">Project image</div>
-            <div class="proj-title">Project Two</div>
-            <div class="proj-desc">Short description, e.g. small SPA using only HTML/CSS with progressive enhancement.</div>
+            <div style="height:120px; border-radius:8px; overflow:hidden; background: linear-gradient(135deg, #041024, #0a1326); display:flex; align-items:center; justify-content:center; color: var(--muted);">Project Image</div>
+            <div class="proj-title">Project B</div>
+            <div class="proj-desc">Short description of Project B.</div>
             <a href="#">GitHub →</a>
           </article>
-
           <article class="proj">
-            <div style="height:120px;border-radius:8px;overflow:hidden;background:linear-gradient(135deg,#082030,#0c1630);display:flex;align-items:center;justify-content:center;color:var(--muted)">Project image</div>
-            <div class="proj-title">Project Three</div>
-            <div class="proj-desc">Short description — why it's interesting and what you learned.</div>
+            <div style="height:120px; border-radius:8px; overflow:hidden; background: linear-gradient(135deg, #082030, #0c1630); display:flex; align-items:center; justify-content:center; color: var(--muted);">Project Image</div>
+            <div class="proj-title">Project C</div>
+            <div class="proj-desc">Short description of Project C.</div>
             <a href="#">Details →</a>
           </article>
         </div>
       </section>
 
-      <section id="skills" style="padding-top:26px">
+      <section id="skills" style="padding-top: 26px;">
         <h2 style="margin-bottom:12px">Skills & Tools</h2>
         <div class="card">
           <div class="skill-list">
-            <div class="pill">Semantic HTML</div>
-            <div class="pill">CSS Grid</div>
-            <div class="pill">Flexbox</div>
-            <div class="pill">Responsive Design</div>
-            <div class="pill">CSS Animations</div>
-            <div class="pill">Sass (optional)</div>
+            <div class="pill">Python</div>
+            <div class="pill">TensorFlow</div>
+            <div class="pill">PyTorch</div>
+            <div class="pill">Signal Processing</div>
+            <div class="pill">Deep Learning</div>
             <div class="pill">Git & GitHub</div>
           </div>
         </div>
-
-        <div class="grid-cols-2" style="margin-top:18px">
+        <div class="split" style="margin-top:18px;">
           <div class="card">
             <h3 style="margin:0 0 8px">Education</h3>
-            <div class="muted">Degree, University — Year</div>
+            <div class="muted">BSc Computer Science, IEM Kolkata</div>
           </div>
           <div class="card">
             <h3 style="margin:0 0 8px">Experience</h3>
-            <div class="muted">Company — Role — Dates</div>
+            <div class="muted">AI / ML Internships, Research Projects</div>
           </div>
         </div>
       </section>
 
-      <section id="contact" style="padding-top:32px">
+      <section id="contact" style="padding-top:32px;">
         <h2>Contact</h2>
-        <div class="card" style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+        <div class="card" style="display:flex; align-items:center; justify-content:space-between; gap:16px;">
           <div>
-            <div style="font-weight:700">Let's build something.</div>
-            <div class="muted">Email me at <a href="mailto:your.email@example.com" style="color:var(--accent);text-decoration:none">your.email@example.com</a></div>
+            <div style="font-weight:700">Let’s build something.</div>
+            <div class="muted">Email me at <a href="mailto:supratik@example.com" style="color: var(--accent); text-decoration: none;">supratik@example.com</a></div>
           </div>
-          <div style="text-align:right">
+          <div style="text-align: right;">
             <div class="muted">Or find me on</div>
-            <div style="margin-top:6px"><a href="#" class="pill">GitHub</a> <a href="#" class="pill">LinkedIn</a></div>
+            <div style="margin-top:6px;">
+              <a href="#" class="pill">GitHub</a>
+              <a href="#" class="pill">LinkedIn</a>
+              <a href="#" class="pill">Twitter</a>
+            </div>
           </div>
         </div>
       </section>
 
     </main>
 
-    <footer>
-      <div>© <span id="year"></span> Your Name — Built with HTML & CSS • Deploy on GitHub Pages</div>
+    <footer class="footer">
+      <div>© <span id="year"></span> Supratik — Built with HTML & CSS • Hosted on GitHub Pages</div>
     </footer>
   </div>
 
   <script>
-    // small unobtrusive script only for dynamic year — you can delete if you want pure HTML/CSS
-    try{document.getElementById('year').textContent = new Date().getFullYear()}catch(e){}
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
