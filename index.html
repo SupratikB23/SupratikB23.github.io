@@ -48,6 +48,13 @@
     .skills{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
     .pill{font-size:13px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);color:var(--muted)}
 
+    /* About Me */
+    section.about{padding:32px 0;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .about-left{background:var(--card);padding:20px;border-radius:12px;line-height:1.6;color:var(--muted)}
+    .about-right{display:flex;flex-direction:column;gap:16px}
+    .about-box{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 4px 14px rgba(2,6,23,0.5)}
+    .about-box h3{margin:0 0 8px;color:white}
+
     /* Projects */
     section.projects{padding:32px 0}
     .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -68,6 +75,7 @@
       .hero{grid-template-columns:1fr}
       .projects-grid{grid-template-columns:repeat(2,1fr)}
       .split{grid-template-columns:1fr}
+      section.about{grid-template-columns:1fr}
     }
     @media (max-width:560px){
       .projects-grid{grid-template-columns:1fr}
@@ -142,6 +150,30 @@
             <div class="pill">Accessibility</div>
           </div>
         </aside>
+      </section>
+
+      <!-- ABOUT ME Section -->
+      <section class="about">
+        <div class="about-left">
+          <h2>About Me</h2>
+          <p>I am an undergraduate Computer Science student specializing in AI & ML at the Institute of Engineering and Management, Kolkata. Passionate about building intelligent systems, deep learning models, and contributing to impactful open-source projects.</p>
+          <p>My journey in artificial intelligence is driven by curiosity and the desire to solve real-world problems through innovative machine learning solutions.</p>
+          <p>When I'm not coding or researching, you'll find me contributing to open-source projects, participating in hackathons, or exploring the latest developments in AI and machine learning.</p>
+        </div>
+        <div class="about-right">
+          <div class="about-box">
+            <h3>1. AI Research</h3>
+            <p class="muted">Currently writing a review paper on Scientific ML, developing a new RL Project & working on Human-Computer Interaction</p>
+          </div>
+          <div class="about-box">
+            <h3>2. Open Source</h3>
+            <p class="muted">Active contributor to various open-source projects and communities, sharing knowledge and building tools for the developer ecosystem.</p>
+          </div>
+          <div class="about-box">
+            <h3>3. Innovation</h3>
+            <p class="muted">Passionate about creating technology that makes a positive impact on society and improves people's lives through intelligent solutions.</p>
+          </div>
+        </div>
       </section>
 
       <section id="projects" class="projects">
