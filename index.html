@@ -32,18 +32,19 @@
 
     /* Hero */
     .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:36px 0}
-.intro{background:var(--card);padding:28px;border-radius:var(--radius);box-shadow:0 6px 24px rgba(2,6,23,0.6)}
-h1{font-size:clamp(26px,3.6vw,40px);margin:0 0 8px}
-h1 .accent{background:linear-gradient(90deg,var(--accent),#06b6d4);-webkit-background-clip:text;background-clip:text;color:transparent}
-p.lead{color:var(--muted);margin:0 0 18px;line-height:1.5}
-.cta{display:flex;gap:12px}
-.btn{padding:10px 16px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:white;text-decoration:none;font-weight:600}
-.btn.primary{background:linear-gradient(90deg,var(--accent),#06b6d4);box-shadow:0 6px 18px rgba(124,58,237,0.14)}
-.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:22px}
-.card{background:rgba(255,255,255,0.04);padding:14px;border-radius:var(--radius);box-shadow:0 4px 16px rgba(0,0,0,0.4);display:flex;align-items:center;gap:10px;transition:transform 0.2s ease,box-shadow 0.2s ease}
-.card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,0.5)}
-.card svg{width:20px;height:20px;fill:var(--accent)}
-.card a{color:white;text-decoration:none;font-weight:500}
+    .intro{background:var(--card);padding:28px;border-radius:var(--radius);box-shadow:0 6px 24px rgba(2,6,23,0.6)}
+    h1{font-size:clamp(26px,3.6vw,40px);margin:0 0 8px}
+    h1 .accent{background:linear-gradient(90deg,var(--accent),#06b6d4);-webkit-background-clip:text;background-clip:text;color:transparent}
+    p.lead{color:var(--muted);margin:0 0 18px;line-height:1.5}
+    .cta{display:flex;gap:12px}
+    .btn{padding:10px 16px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:white;text-decoration:none;font-weight:600;box-shadow:0 4px 16px rgba(0,0,0,0.4);display:flex;align-items:center;gap:10px;transition:transform 0.2s ease,box-shadow 0.2s ease}
+    .btn:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,0.5)}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),#06b6d4);box-shadow:0 6px 18px rgba(124,58,237,0.14);box-shadow:0 4px 16px rgba(0,0,0,0.4);display:flex;align-items:center;gap:10px;transition:transform 0.2s ease,box-shadow 0.2s ease}
+    .split{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:22px}
+    .card{background:rgba(255,255,255,0.04);padding:14px;border-radius:var(--radius);box-shadow:0 4px 16px rgba(0,0,0,0.4);display:flex;align-items:center;gap:10px;transition:transform 0.2s ease,box-shadow 0.2s ease}
+    .card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,0.5)}
+    .card svg{width:20px;height:20px;fill:var(--accent)}
+    .card a{color:white;text-decoration:none;font-weight:500}
 
 
     /* Card: profile */
@@ -117,7 +118,7 @@ p.lead{color:var(--muted);margin:0 0 18px;line-height:1.5}
       <section class="hero">
         <div class="intro">
           <h1>Hi — I'm <span class="accent">SUPRATIK Bhowal</span></h1>
-          <p class="lead">Undergraduate CS Sophomore student specializing in AI & ML. I build AI models, contribute to open-source, and explore real-world applications.<br>Currently learning Advanced DL Frameworks, LLMs Architecture & RL Applications</p>
+          <p class="lead">Undergraduate CS Sophomore student specializing in AI & ML. I build AI models, contribute to open-source, and explore real-world applications.<br>Currently learning Advanced DL Frameworks, LLMs Architecture & RL Applications.</p>
           <div class="cta">
             <a class="btn primary" href="#projects">See Projects</a>
             <a class="btn" href="#contact">Hire me</a>
@@ -165,15 +166,15 @@ p.lead{color:var(--muted);margin:0 0 18px;line-height:1.5}
         </div>
         <div class="about-right">
           <div class="about-box">
-            <h3>1. AI Research</h3>
+            <h3>AI Research</h3>
             <p class="muted">Currently writing a review paper on Scientific ML, developing a new RL Project & working on Human-Computer Interaction</p>
           </div>
           <div class="about-box">
-            <h3>2. Open Source</h3>
+            <h3>Open Source</h3>
             <p class="muted">Active contributor to various open-source projects and communities, sharing knowledge and building tools for the developer ecosystem.</p>
           </div>
           <div class="about-box">
-            <h3>3. Innovation</h3>
+            <h3>Innovation</h3>
             <p class="muted">Passionate about creating technology that makes a positive impact on society and improves people's lives through intelligent solutions.</p>
           </div>
         </div>
