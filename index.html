@@ -53,7 +53,24 @@
     .meta{display:flex;justify-content:space-between;align-items:center;padding-top:12px}
     .meta .name{font-weight:700}
     .skills{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-    .pill{font-size:13px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);color:var(--muted)}
+    .pill {
+  display:inline-block;
+  padding:6px 12px;
+  border-radius:9999px;
+  background:rgba(255,255,255,0.06);
+  color:#fff;
+  font-size:14px;
+  font-weight:500;
+  transition:all 0.25s ease;
+  cursor:default;
+}
+.pill:hover {
+  background:linear-gradient(90deg,var(--accent),#06b6d4);
+  color:#fff;
+  box-shadow:0 0 12px rgba(6,182,212,0.6);
+  transform:translateY(-2px) scale(1.05);
+}
+
 
     /* About Me */
     section.about{padding:32px 0;display:grid;grid-template-columns:1fr 1fr;gap:20px}
@@ -158,6 +175,7 @@
 
       <!-- ABOUT ME Section -->
     <section class="about">
+        
       <div class="about-left">
         <h2><span class="accent">About Me</span></h2>
         <div class="underline"></div>
@@ -191,8 +209,7 @@
         <div class="about-box">
           <div style="display:flex;align-items:center;gap:10px">
             <svg xmlns="http://www.w3.org/2000/svg" svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="#10b981">
-              <polyline points="16,18 22,12 16,6"/>
-        <polyline points="8,6 2,12 8,18"/>
+              <polyline points="16,18 22,12 16,6"/><polyline points="8,6 2,12 8,18"/>
             </svg>
             <h3 style="color:#10b981;margin:0">Open Source</h3>
           </div>
@@ -209,6 +226,88 @@
             <h3 style="color:#3b82f6;margin:0">Innovation</h3>
           </div>
           <p class="muted">Passionate about creating technology that makes a positive impact on society and improves people's lives through intelligent solutions.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNICAL SKILLS Section -->
+    <section class="skills-section" style="padding:32px 0">
+      <h2 style="text-align:center;margin:0 0 12px">Technical <span class="accent">Skills</span></h2>
+      <p style="text-align:center;color:var(--muted);max-width:700px;margin:0 auto 28px">
+        A comprehensive toolkit for building intelligent systems and solving complex problems
+      </p>
+    
+      <div class="grid-cols-2">
+        <div class="card">
+          <h3 style="margin:0 0 12px;display:flex;align-items:center;gap:8px;color:#38bdf8">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16,18 22,12 16,6"/><polyline points="8,6 2,12 8,18"/>
+            </svg>
+            Programming Languages
+          </h3>
+          <div class="skill-list">
+            <div class="pill">Python</div>
+            <div class="pill">Objective-C</div>
+            <div class="pill">C++</div>
+            <div class="pill">SQL</div>
+            <div class="pill">MATLAB</div>
+          </div>
+        </div>
+    
+        <div class="card">
+          <h3 style="margin:0 0 12px;display:flex;align-items:center;gap:8px;color:#34d399">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="16" rx="2" ry="2"></rect>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            Frameworks & Libraries
+          </h3>
+          <div class="skill-list">
+            <div class="pill">Pandas</div>
+            <div class="pill">NumPy</div>
+            <div class="pill">Matplotlib</div>
+            <div class="pill">Seaborn</div>
+            <div class="pill">Scikit-Learn</div>
+            <div class="pill">TensorFlow</div>
+            <div class="pill">PyTorch</div>
+            <div class="pill">Keras</div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="grid-cols-2" style="margin-top:18px">
+        <div class="card">
+          <h3 style="margin:0 0 12px;display:flex;align-items:center;gap:8px;color:#22d3ee">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M2 12h20"></path>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+            Technologies
+          </h3>
+          <div class="skill-list">
+            <div class="pill">Machine Learning</div>
+            <div class="pill">Deep Learning</div>
+            <div class="pill">Git</div>
+            <div class="pill">Weights & Biases</div>
+            <div class="pill">Feature Engineering</div>
+            <div class="pill">Kaggle</div>
+          </div>
+        </div>
+    
+        <div class="card">
+          <h3 style="margin:0 0 12px;display:flex;align-items:center;gap:8px;color:#06b6d4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <circle cx="12" cy="12" r="4"></circle>
+            </svg>
+            Languages
+          </h3>
+          <div class="skill-list">
+            <div class="pill">English (Professional)</div>
+            <div class="pill">Bengali (Native)</div>
+            <div class="pill">Hindi (Limited Proficiency)</div>
+          </div>
         </div>
       </div>
     </section>
