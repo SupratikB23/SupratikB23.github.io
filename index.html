@@ -73,9 +73,34 @@
 
 
     /* About Me */
-    section.about{padding:32px 0;display:grid;grid-template-columns:1fr 1fr;gap:20px}
-    .about-left{background:var(--card);padding:20px;border-radius:12px;line-height:1.6;color:var(--muted)}
-    h2 .accent{background:linear-gradient(90deg,var(--accent),#06b6d4);-webkit-background-clip:text;background-clip:text;color:transparent}
+    section.about {
+      padding:32px 0;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+    
+    .about-left {
+      background:var(--card);
+      padding:20px;
+      border-radius:12px;
+      line-height:1.6;
+      color:var(--muted);
+    }
+    
+    .about-left h2,
+    .about-left h3,
+    .about-left h4 {
+      margin-top:0;
+    }
+    
+    h2 .accent {
+      background:linear-gradient(90deg,var(--accent),#06b6d4);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
     .about-right{display:flex;flex-direction:column;gap:16px}
     .about-box{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 4px 14px rgba(2,6,23,0.5)}
     .about-box h3{margin:0 0 8px;color:white}
@@ -230,7 +255,7 @@
     </section>
 
     <!-- TECHNICAL SKILLS Section -->
-    <section class="skills-section" style="padding:32px 0">
+    <section class="skills-section" style="padding:10px 0">
       <h2 style="text-align:center;margin:0 0 12px">Technical <span class="accent">Skills</span></h2>
       <p style="text-align:center;color:var(--muted);max-width:700px;margin:0 auto 28px">
         A comprehensive toolkit for building intelligent systems and solving complex problems
