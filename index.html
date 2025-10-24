@@ -109,10 +109,12 @@
     /* Projects */
     section.projects{padding:32px 0}
     .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
-    .proj{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    .proj{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);box-shadow:0 4px 16px rgba(0,0,0,0.3);transition:transform 0.2s ease,box-shadow 0.2s ease}
+    .proj:hover{transform:translateY(-4px);box-shadow:0 8px 22px rgba(0,0,0,0.45)}
     .proj-title{font-weight:700;margin:8px 0}
     .proj-desc{color:#9ab2db;font-size:15px}
     .proj a{display:inline-block;margin-top:12px;text-decoration:none;color:var(--accent);font-weight:600}
+
     .pill2 {
       display:inline-block;
       padding:6px 12px;
