@@ -108,28 +108,28 @@
 
     /* Projects */
     section.projects{padding:32px 0}
-    .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
     .proj{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
     .proj-title{font-weight:700;margin:8px 0}
     .proj-desc{color:#9ab2db;font-size:15px}
     .proj a{display:inline-block;margin-top:12px;text-decoration:none;color:var(--accent);font-weight:600}
     .pill2 {
-  display:inline-block;
-  padding:6px 12px;
-  border-radius:9999px;
-  background:rgba(255,255,255,0.06);
-  color:#fff;
-  font-size:12px;
-  font-weight:500;
-  transition:all 0.25s ease;
-  cursor:default;
-}
-.pill2:hover {
-  background:linear-gradient(90deg,var(--accent),#06b6d4);
-  color:#fff;
-  box-shadow:0 0 12px rgba(6,182,212,0.6);
-  transform:translateY(-2px) scale(1.05);
-}
+      display:inline-block;
+      padding:6px 12px;
+      border-radius:9999px;
+      background:rgba(255,255,255,0.06);
+      color:#fff;
+      font-size:12px;
+      font-weight:500;
+      transition:all 0.25s ease;
+      cursor:default;
+    }
+    .pill2:hover {
+      background:linear-gradient(90deg,var(--accent),#06b6d4);
+      color:#fff;
+      box-shadow:0 0 12px rgba(6,182,212,0.6);
+      transform:translateY(-2px) scale(1.05);
+    }
 
     /* Skills + Contact */
     .split{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
@@ -522,7 +522,7 @@
 
 
 <!-- AFFILIATIONS & MEMBERSHIPS Section -->
-<section class="affiliations" style="padding:80px 0">
+<section class="affiliations" style="padding:70px 0">
   <h2 style="text-align:center;margin-bottom:12px;">
     Affiliations & <span class="accent">Memberships</span>
   </h2>
@@ -618,7 +618,7 @@
 
     <!-- PROJECTS -->
       <section id="projects" class="projects">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
           <h2 style="margin:0">Selected <span class="accent">Projects</span></h2>
           <a href="https://github.com/stars/SupratikB23/lists/personal-projects" class="muted">View all on GitHub →</a>
         </div>
@@ -627,34 +627,84 @@
       
       <article class="proj">
         <div class="proj-title">Epilepsy Prediction & Detection </div>
-        <div class="proj-desc" >Developed Deep Learning algorithms for both real-time Epileptic Seizure Detection and Prediction on Electroencephalogram (EEG) signals. The CNN-BiLSTM model achieved 98% prediction accuracy, while the Transformer model showed 89% detection accuracy.</div>
-        
+        <div class="proj-desc" >Developed DL algorithms for both real-time Epileptic Seizure Detection and Prediction on EEG signals. The CNN-BiLSTM model achieved 98% prediction accuracy, while the Transformer model showed 89% detection accuracy.</div>
+        <br>
+        <div style="font-weight:600; color:#e0e0e0; text-align:left; font-size:15px; margin-bottom:4px;">
+        Technologies Used:
+          </div>
+          <div style="display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-start; margin-bottom:8px;">
+            <div class="pill2" font-size:12px>Python</div>
+            <div class="pill2" font-size:12px>Scikit-learn</div>
+            <div class="pill2" font-size:12px>Tensorflow</div>
+            <div class="pill2" font-size:12px>Scipy</div>
+            <div class="pill2" font-size:12px>Keras</div>
+          </div>
         <a href="https://github.com/SupratikB23/Epilepsy-Prediction-and-Detection">Repo →</a>
       </article>
     
       <article class="proj">
         <div class="proj-title">Poker Hand Prediction Model</div>
         <div class="proj-desc">Built ML & DL models that predict poker hand categories based on dealt cards. Combined multiple algorithms including Random Forest, SVM, and MLP Classifier into a Stacking Classifier for enhanced performance.</div>
-        <a href="https://github.com/SupratikB23/Poker-Hand-Prediction">Repo →</a><br>
+        <br>
+        <div style="font-weight:600; color:#e0e0e0; text-align:left; font-size:15px; margin-bottom:4px;">
+        Technologies Used:
+          </div>
+          <div style="display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-start; margin-bottom:8px;">
+            <div class="pill2" font-size:12px>Python</div>
+            <div class="pill2" font-size:12px>Scikit-learn</div>
+            <div class="pill2" font-size:12px>NumPy</div>
+            <div class="pill2" font-size:12px>Pandas</div>
+          </div>
+        <a href="https://github.com/SupratikB23/Poker-Hand-Prediction">Repo →</a>
         <a href="https://www.kaggle.com/code/supratikbhowal/poker-hand-prediction-model">Kaggle →</a>
       </article>
     
       <article class="proj">
         <div class="proj-title">HarmonyRL</div>
         <div class="proj-desc">Deep Learning framework for generating symbolic music (MIDI) using Supervised Learning, Reinforcement Learning (RL), and Diffusion-based Postprocessing.</div>
+        <br>
+        <div style="font-weight:600; color:#e0e0e0; text-align:left; font-size:15px; margin-bottom:4px;">
+        Technologies Used:
+          </div>
+          <div style="display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-start; margin-bottom:8px;">
+            <div class="pill2" font-size:12px>Python</div>
+            <div class="pill2" font-size:12px>HuggingFace</div>
+            <div class="pill2" font-size:12px>PyTorch</div>
+            <div class="pill2" font-size:12px>Scipy</div>
+            <div class="pill2" font-size:12px>Librosa</div>
+          </div>
         <a href="https://github.com/SupratikB23/HarmonyRL">Repo →</a>
       </article>
       
       <article class="proj">
         <div class="proj-title">Neural Network for Multi Class Classification (ANN_MNIST_AdaAct)</div>
         <div class="proj-desc">Creating an ANN for Multi-Class Classification with Custom Ada-Act Function from scratch.</div>
+        <br>
+        <div style="font-weight:600; color:#e0e0e0; text-align:left; font-size:15px; margin-bottom:4px;">
+        Technologies Used:
+          </div>
+          <div style="display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-start; margin-bottom:8px;">
+            <div class="pill2" font-size:12px>Python</div>
+            <div class="pill2" font-size:12px>NumPy</div>
+            <div class="pill2" font-size:12px>Pandas</div>
+            <div class="pill2" font-size:12px>Math</div>
+          </div>
         <a href="https://github.com/SupratikB23/Neural-Network-for-Multi-Class-Classification">Repo →</a>
       </article>
     
       <article class="proj">
         <div class="proj-title">Sentiment Analysis & Recommendation System for App Data</div>
-        <div class="proj-desc">Sentiment Classifier to analyze and predict the sentiment (positive, negative, or neutral) of user reviews collected from 1 million Google Play Store entries.</div>
-        <a href="https://github.com/SupratikB23/Sentiment-Analysis-and-Recommendation-System-for-App-Review-Data">Repo →</a><br>
+        <div class="proj-desc">Sentiment Classifier to analyze and predict the sentiment of user reviews collected from 1 million Google Play Store entries.</div>
+        <br>
+        <div style="font-weight:600; color:#e0e0e0; text-align:left; font-size:15px; margin-bottom:4px;">
+        Technologies Used:
+          </div>
+          <div style="display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-start; margin-bottom:8px;">
+            <div class="pill2" font-size:12px>Python</div>
+            <div class="pill2" font-size:12px>Scikit-learn</div>
+            <div class="pill2" font-size:12px>Tensorflow</div>
+          </div>
+        <a href="https://github.com/SupratikB23/Sentiment-Analysis-and-Recommendation-System-for-App-Review-Data">Repo →</a>
         <a href="https://www.kaggle.com/code/supratikbhowal/sentiment-classifier-for-app-data">Kaggle →</a>
       </article>
     
@@ -666,13 +716,11 @@
         Technologies Used:
           </div>
           <div style="display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-start; margin-bottom:8px;">
-            <div class="pill2" font-size:12px>Machine Learning</div>
-            <div class="pill2" font-size:12px>DSA</div>
-            <div class="pill2" font-size:12px>DAA</div>
-            <div class="pill2" font-size:12px>C Programming</div>
+            <div class="pill2" font-size:12px>Python</div>
+            <div class="pill2" font-size:12px>PyTorch</div>
+            <div class="pill2" font-size:12px>ResNet50</div>
           </div>
-        
-        <a href="https://github.com/SupratikB23/Arabic-Dates-Classification">Repo →</a><br>
+        <a href="https://github.com/SupratikB23/Arabic-Dates-Classification">Repo →</a>
         <a href="https://www.kaggle.com/code/supratikbhowal/arabic-dates-classification-resnet50">Kaggle →</a>
       </article>
     </div>
