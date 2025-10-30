@@ -1,4 +1,4 @@
-<h1>SupratikB23 Portfolio</h1>
+<h1>Supratik Bhowal - Portfolio</h1>
 
 <p>Personal portfolio website showcasing my projects, skills, and web development journey. Built with modern web technologies to highlight creativity and experience.</p>
 
