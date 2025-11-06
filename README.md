@@ -1,6 +1,6 @@
 <h1>Supratik Bhowal - Portfolio</h1>
 
-<p>Personal portfolio website showcasing my projects, skills, and web development journey. Built with modern web technologies to highlight creativity and experience.</p>
+<p>Personal portfolio website showcasing my projects, skills, and AIML journey. Built with modern web technologies to highlight creativity and experience.</p>
 
 <h2>Explore the Website</h2>
 <p>Check out the live portfolio: <a href="https://SupratikB23.github.io" target="_blank">SupratikB23.github.io</a></p>
