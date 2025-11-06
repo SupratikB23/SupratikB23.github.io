@@ -11,7 +11,6 @@
 ├── README.md
 ├── index.html
 └── pics
-    └── SelfPicture2.jpeg
 </pre>
 
 <h2>Technologies Used</h2>
