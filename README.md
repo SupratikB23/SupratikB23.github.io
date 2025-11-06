@@ -8,6 +8,7 @@
 <h2>Repository Structure</h2>
 <pre>
 ├── LICENSE
+├── NOTICE
 ├── README.md
 ├── index.html
 └── pics
