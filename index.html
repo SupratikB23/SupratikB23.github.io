@@ -1,1063 +1,1301 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supratik Bhowal — AI & ML Portfolio</title>
+    <meta
+      name="description"
+      content="Personal portfolio of Supratik Bhowal — AI/ML Enthusiast & Research Student."
+    />
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Supratik — AI & ML Portfolio</title>
-    <meta name="description" content="Personal portfolio — projects, skills and contact." />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
-        :root {
-            --bg: #0f1724;
-            /* deep navy */
-            --card: #0b1220;
-            --muted: #9aa4b2;
-            --accent: #7c3aed;
-            /* indigo */
-            --glass: rgba(255, 255, 255, 0.03);
-            --glass-2: rgba(255, 255, 255, 0.02);
-            --max-width: 1100px;
-            --radius: 14px;
-            color-scheme: dark;
-        }
+      :root {
+        /* Colors */
+        --bg-dark: #030712;
+        --bg-card: rgba(17, 24, 39, 0.7);
+        --bg-card-hover: rgba(31, 41, 55, 0.8);
+        --primary: #8b5cf6; /* Violet */
+        --primary-glow: rgba(139, 92, 246, 0.5);
+        --secondary: #06b6d4; /* Cyan */
+        --text-main: #f9fafb;
+        --text-muted: #9ca3af;
+        --border: rgba(255, 255, 255, 0.1);
+        --glass: rgba(255, 255, 255, 0.05);
 
-        * {
-            box-sizing: border-box
-        }
+        /* Spacing & Layout */
+        --max-width: 1200px;
+        --radius: 16px;
+        --header-height: 70px;
+      }
 
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
-            color: #e6eef8;
-            background: linear-gradient(180deg, var(--bg), #081021);
-        }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-        .container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 28px
-        }
+      html {
+        scroll-behavior: smooth;
+      }
 
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 18px 0
-        }
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: var(--bg-dark);
+        color: var(--text-main);
+        line-height: 1.6;
+        overflow-x: hidden;
+        background-image: radial-gradient(
+            circle at 15% 50%,
+            rgba(139, 92, 246, 0.08),
+            transparent 25%
+          ),
+          radial-gradient(
+            circle at 85% 30%,
+            rgba(6, 182, 212, 0.08),
+            transparent 25%
+          );
+      }
 
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px
-        }
+      /* Typography */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Outfit", sans-serif;
+        color: #fff;
+        line-height: 1.2;
+      }
 
-        .logo {
-            width: 52px;
-            height: 52px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, var(--accent), #06b6d4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: white
-        }
+      h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+      h2 {
+        font-size: clamp(2rem, 4vw, 2.5rem);
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+      h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
 
-        nav a {
-            color: var(--muted);
-            text-decoration: none;
-            margin-left: 18px;
-            font-weight: 600
-        }
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: color 0.2s;
+      }
+      p {
+        color: var(--text-muted);
+        margin-bottom: 1rem;
+      }
 
-        nav a:hover {
-            color: white
-        }
+      /* Utilities */
+      .container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 24px;
+      }
 
-        /* Hero */
+      .text-gradient {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 24px;
+        border-radius: 12px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: 1px solid transparent;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(139, 92, 246, 0.5);
+      }
+
+      .btn-outline {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--border);
+        color: white;
+      }
+
+      .btn-outline:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .section-padding {
+        padding: 80px 0;
+      }
+
+      /* Header */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: var(--header-height);
+        z-index: 1000;
+        background: rgba(3, 7, 18, 0.7);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+      }
+
+      header .container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        font-family: "Outfit", sans-serif;
+        font-weight: 700;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo-icon {
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.2rem;
+      }
+
+      nav {
+        display: flex;
+        gap: 32px;
+      }
+      nav a {
+        font-weight: 500;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+      }
+      nav a:hover {
+        color: white;
+      }
+
+      /* Hero Section */
+      .hero {
+        padding-top: calc(var(--header-height) + 60px);
+        padding-bottom: 80px;
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 60px;
+        align-items: center;
+      }
+
+      .hero-content h1 {
+        margin-bottom: 24px;
+      }
+      .hero-content .lead {
+        font-size: 1.15rem;
+        margin-bottom: 32px;
+        max-width: 600px;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 40px;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 16px;
+      }
+      .social-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: var(--glass);
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-muted);
+        transition: all 0.2s;
+      }
+      .social-icon:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      .hero-image {
+        position: relative;
+      }
+
+      .hero-image img {
+        width: 100%;
+        border-radius: 24px;
+        border: 1px solid var(--border);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-image::before {
+        content: "";
+        position: absolute;
+        inset: -20px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        border-radius: 32px;
+        opacity: 0.2;
+        filter: blur(40px);
+        z-index: 0;
+      }
+
+      /* Stats Grid */
+      .about-container {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 60px;
+        align-items: center;
+      }
+      
+      @media (max-width: 968px) {
+        .about-container {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+      }
+
+      .stats-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .stat-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        padding: 24px;
+        border-radius: var(--radius);
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        transition: transform 0.3s;
+      }
+
+      .stat-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .stat-icon {
+        padding: 10px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--secondary);
+      }
+
+      /* Skills Section */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
+      }
+
+      .skill-category {
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 24px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .skill-category:hover {
+        transform: translateY(-5px);
+        border-color: var(--secondary);
+        box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.2);
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+      }
+
+      .skill-category h3 {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 1.1rem;
+        color: white;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .tag {
+        padding: 8px 16px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.03);
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: all 0.2s ease;
+        font-weight: 500;
+      }
+      .tag:hover {
+        background: rgba(6, 182, 212, 0.15);
+        color: var(--secondary);
+        border-color: var(--secondary);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(6, 182, 212, 0.2);
+      }
+
+      /* Projects Section */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: 32px;
+      }
+
+      .project-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 24px;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .project-card:hover {
+        transform: translateY(-8px);
+        border-color: rgba(139, 92, 246, 0.3);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .project-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 16px;
+      }
+
+      .folder-icon {
+        color: var(--primary);
+        width: 40px;
+        height: 40px;
+      }
+      .project-links {
+        display: flex;
+        gap: 12px;
+      }
+      .project-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--border);
+        color: var(--text-muted);
+        transition: all 0.3s ease;
+      }
+      .project-links a:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+      }
+
+      .project-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+        color: white;
+      }
+      .project-desc {
+        font-size: 0.95rem;
+        margin-bottom: 24px;
+        flex-grow: 1;
+      }
+
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        font-family: "SF Mono", "Fira Code", monospace;
+      }
+
+      .project-tech span {
+        padding: 4px 10px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: all 0.2s ease;
+        cursor: default;
+      }
+
+      .project-tech span:hover {
+        background: rgba(139, 92, 246, 0.15);
+        color: var(--primary);
+        border-color: var(--primary);
+        box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
+        transform: translateY(-1px);
+      }
+
+      /* Experience Section */
+      .timeline {
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--border);
+      }
+
+      .timeline-item {
+        padding-left: 32px;
+        position: relative;
+        margin-bottom: 48px;
+      }
+
+      .timeline-item::after {
+        content: "";
+        position: absolute;
+        left: -6px;
+        top: 6px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--bg-dark);
+        border: 2px solid var(--primary);
+      }
+
+      .timeline-date {
+        font-size: 0.9rem;
+        color: var(--secondary);
+        font-weight: 600;
+        margin-bottom: 8px;
+        display: inline-block;
+      }
+
+      .timeline-content h3 {
+        margin-bottom: 4px;
+      }
+      .timeline-org {
+        color: var(--text-muted);
+        font-weight: 500;
+        margin-bottom: 12px;
+      }
+
+      /* Contact Section */
+      .contact-box {
+        background: linear-gradient(
+          135deg,
+          rgba(139, 92, 246, 0.1),
+          rgba(6, 182, 212, 0.1)
+        );
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 60px;
+        text-align: center;
+      }
+
+      .contact-box h2 {
+        margin-bottom: 16px;
+      }
+      .contact-box p {
+        max-width: 500px;
+        margin: 0 auto 32px;
+        font-size: 1.1rem;
+      }
+
+      footer {
+        padding: 40px 0;
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        border-top: 1px solid var(--border);
+        margin-top: 80px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
         .hero {
-            display: grid;
-            grid-template-columns: 1fr 420px;
-            gap: 28px;
-            align-items: center;
-            padding: 36px 0
+          grid-template-columns: 1fr;
+          text-align: center;
+          gap: 40px;
         }
-
-        .intro {
-            background: var(--card);
-            padding: 28px;
-            border-radius: var(--radius);
-            box-shadow: 0 6px 24px rgba(2, 6, 23, 0.6)
+        .hero-actions {
+          justify-content: center;
         }
-
-        h1 {
-            font-size: clamp(26px, 3.6vw, 40px);
-            margin: 0 0 8px
+        .hero-content .lead {
+          margin: 0 auto 32px;
         }
-
-        h1 .accent {
-            background: linear-gradient(90deg, var(--accent), #06b6d4);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent
+        nav {
+          display: none;
+        } /* Mobile menu could be added here */
+        .timeline::before {
+          left: 20px;
         }
-
-        p.lead {
-            color: var(--muted);
-            margin: 0 0 18px;
-            line-height: 1.5
+        .timeline-item {
+          padding-left: 50px;
         }
-
-        .cta {
-            display: flex;
-            gap: 12px
+        .timeline-item::after {
+          left: 14px;
         }
+      }
 
-        .btn {
-            padding: 10px 16px;
-            border-radius: 10px;
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease
-        }
+      /* Affiliations Section */
+      .affiliations-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
+      }
 
-        .btn:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5)
-        }
+      .affiliation-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
 
-        .btn.primary {
-            background: linear-gradient(90deg, var(--accent), #06b6d4);
-            box-shadow: 0 6px 18px rgba(124, 58, 237, 0.14);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease
-        }
+      .affiliation-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--secondary);
+        box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.3);
+      }
 
-        .split {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 16px;
-            margin-top: 22px
-        }
+      .affiliation-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
 
-        .card {
-            background: rgba(255, 255, 255, 0.04);
-            padding: 14px;
-            border-radius: var(--radius);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease
-        }
+      .affiliation-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: rgba(6, 182, 212, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--secondary);
+        flex-shrink: 0;
+      }
 
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5)
-        }
+      .affiliation-info h3 {
+        font-size: 1.1rem;
+        margin-bottom: 4px;
+        color: white;
+      }
 
-        .card svg {
-            width: 20px;
-            height: 20px;
-            fill: var(--accent)
-        }
+      .affiliation-org {
+        color: var(--primary);
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
 
-        .card a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500
-        }
+      .affiliation-desc {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        flex-grow: 1;
+      }
 
+      .affiliation-footer {
+        margin-top: auto;
+        padding-top: 16px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.85rem;
+        color: var(--secondary);
+        font-weight: 600;
+      }
+      
+      .badge {
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+      }
 
-        /* Card: profile */
-        .profile-card {
-            background: linear-gradient(180deg, var(--glass), var(--glass-2));
-            border-radius: 16px;
-            padding: 18px
-        }
+    </style>
+  </head>
 
-        .avatar {
-            width: 100%;
-            aspect-ratio: 5/3;
-            border-radius: 12px;
-            overflow: hidden;
-            background: linear-gradient(180deg, #061126, #0c1730);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--muted)
-        }
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <div class="logo-icon">S</div>
+          <span>Supratik</span>
+        </div>
+        <nav>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#education">Education</a>
+          <a href="#experience">Experience</a>
+          <a href="#affiliations">Memberships</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
 
-        .avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover
-        }
+    <main>
+      <!-- Hero Section -->
+      <section class="hero container">
+        <div class="hero-content">
+          <div
+            style="
+              color: var(--secondary);
+              font-weight: 600;
+              margin-bottom: 16px;
+              letter-spacing: 1px;
+            "
+          >
+            HI THERE, I'M
+          </div>
+          <h1>Supratik <span class="text-gradient">Bhowal</span></h1>
+          <p class="lead">
+            Undergraduate CS Sophomore specializing in <strong>AI & ML</strong>.
+            I build intelligent models, contribute to open-source, and explore
+            the frontiers of Deep Learning.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="#contact" class="btn btn-outline">Contact Me</a>
+          </div>
+          <div class="social-links">
+            <a
+              href="https://github.com/SupratikB23"
+              target="_blank"
+              class="social-icon"
+              title="GitHub"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                ></path>
+              </svg>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/supratikbhowal"
+              target="_blank"
+              class="social-icon"
+              title="LinkedIn"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                ></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a
+              href="mailto:supratikbhowal23@gmail.com"
+              class="social-icon"
+              title="Email"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                ></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </a>
+            <a
+              href="https://www.kaggle.com/supratikbhowal"
+              target="_blank"
+              class="social-icon"
+              title="Kaggle"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                stroke="none"
+              >
+                <path
+                  d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.375v5.215c0 .211-.117.316-.351.316H4.86c-.235 0-.352-.105-.352-.316V.316c0-.211.117-.316.352-.316h3.075c.234 0 .351.105.351.316v15.826l6.596-7.62c.164-.188.328-.281.492-.281h3.42c.187 0 .293.094.316.281.023.117-.023.211-.14.281l-5.835 6.647 6.55 7.823c.117.141.164.258.14.386z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img
+            src="https://raw.githubusercontent.com/SupratikB23/SupratikB23.github.io/main/pics/SelfPicture2.jpeg"
+            alt="Supratik Bhowal"
+          />
+        </div>
+      </section>
 
-        .meta {
+      <!-- About & Stats -->
+      <!-- About & Stats -->
+      <section id="about" class="section-padding container">
+        <h2 class="text-center" style="margin-bottom: 60px;">About <span class="text-gradient">Me</span></h2>
+        
+        <div class="about-container">
+            <div style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8;">
+                <p style="margin-bottom: 20px;">
+                    I'm a Computer Science undergrad at the <strong style="color: white;">Institute of Engineering and Management, Kolkata</strong>, with a deep focus on AI & ML. I love building intelligent systems and diving into deep learning models that actually make a difference.
+                </p>
+                <p style="margin-bottom: 20px;">
+                    My journey in AI started with simple curiosity but quickly grew into a passion for solving real-world problems. Presently learning <strong style="color: white;">Advanced DL Frameworks</strong>, <strong style="color: white;">LLMs Architecture</strong> & <strong style="color: white;">RL Applications</strong>. 
+                </p>
+                <p>
+                    Outside of research and code, I'm usually contributing to <strong style="color: white;">open-source</strong>, hacking away at a weekend hackathon, or just geeking out over the latest AI papers.
+                </p>
+            </div>
+
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                </div>
+                <div>
+                  <h3>AI Research</h3>
+                  <p style="margin: 0; font-size: 0.9rem">
+                    Currently working on a review paper for Scientific ML, building a new RL project, and exploring Human-Computer Interaction.
+                  </p>
+                </div>
+              </div>
+              
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                </div>
+                <div>
+                  <h3>Open Source</h3>
+                  <p style="margin: 0; font-size: 0.9rem">
+                    I'm an active contributor to various open-source communities—sharing knowledge and building tools for the dev ecosystem.
+                  </p>
+                </div>
+              </div>
+              
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </div>
+                <div>
+                  <h3>Innovation</h3>
+                  <p style="margin: 0; font-size: 0.9rem">
+                    Driven to create tech that actually helps people. I believe in using intelligent solutions to make a positive impact.
+                  </p>
+                </div>
+              </div>
+            </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="section-padding container">
+        <h2>Technical <span class="text-gradient">Skills</span></h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#22d3ee"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+              Programming Languages
+            </h3>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">Objective-C</span>
+              <span class="tag">C++</span>
+              <span class="tag">SQL</span>
+              <span class="tag">MATLAB</span>
+              <span class="tag">HTML</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#35dea0"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                ></path>
+              </svg>
+              Frameworks & Libraries
+            </h3>
+            <div class="tags">
+              <span class="tag">Pandas</span>
+              <span class="tag">NumPy</span>
+              <span class="tag">Matplotlib</span>
+              <span class="tag">Seaborn</span>
+              <span class="tag">Scikit-Learn</span>
+              <span class="tag">TensorFlow</span>
+              <span class="tag">PyTorch</span>
+              <span class="tag">Keras</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#8b5cf6"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path
+                  d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                ></path>
+              </svg>
+              Technologies
+            </h3>
+            <div class="tags">
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Deep Learning</span>
+              <span class="tag">Git</span>
+              <span class="tag">Weights & Biases</span>
+              <span class="tag">Feature Engineering</span>
+              <span class="tag">Kaggle</span>
+              <span class="tag">Hugging Face</span>
+            </div>
+          </div>
+
+          <div class="skill-category" style="grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+            <h3 style="margin: 0; white-space: nowrap;">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#f59e0b"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+              </svg>
+              Data Structures & Algorithms
+            </h3>
+            <div style="color:var(--text-muted); font-size:0.95rem; text-align: center; flex: 1; min-width: 250px;">
+                Track my DSA journey and problem-solving skills on LeetCode.
+            </div>
+            <a href="https://leetcode.com/u/Supratik23//" target="_blank" class="btn btn-primary" style="padding: 8px 20px; margin: 0;">View LeetCode</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education Section -->
+      <section id="education" class="section-padding container">
+        <h2>Education & <span class="text-gradient">Learning</span></h2>
+        <div class="timeline">
+          
+          <!-- College -->
+          <div class="timeline-item">
+            <span class="timeline-date">2024 – Present</span>
+            <div class="timeline-content">
+              <h3>B.Tech Computer Science (AI & ML)</h3>
+              <div class="timeline-org"><span style="color: var(--primary); font-weight: 600;">Institute of Engineering and Management (IEM), Kolkata</span></div>
+              <p style="color: rgb(255, 255, 255); font-weight: 500; font-family: 'SF Mono', monospace; font-size: 1rem;">YGPA: 9.11 (1st yr)</p> 
+              <p>Relevant Courses: Machine Learning, DSA, DAA, C Programming</p>
+            </div>
+          </div>
+
+          <!-- High School -->
+          <div class="timeline-item">
+            <span class="timeline-date">2010 – 2024</span>
+            <div class="timeline-content">
+              <h3>PCM with Computer Science</h3>
+              <div class="timeline-org"><span style="color: var(--primary); font-weight: 600;">South Point High School (SPHS), Kolkata</span></div>
+              <p style="color: white; font-weight: 500; font-family: 'SF Mono', monospace; font-size: 1rem;">90% (12th), 95% (10th) </p> 
+              <p>Relevant Courses: Python Programming, MySQL, HTML, Computer Networks</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience" class="section-padding container">
+        <h2>Professional <span class="text-gradient">Experience</span></h2>
+        <div class="timeline">
+          
+          <!-- HCI Research Intern -->
+          <div class="timeline-item">
+            <span class="timeline-date">July 2025 – Present</span>
+            <div class="timeline-content">
+              <h3>HCI Research Intern</h3>
+              <div class="timeline-org"><span style="color: var(--primary); font-weight: 600;">IEM with IIT Mandi Chapter</span> • <span style="color: rgb(254, 254, 228);">Kolkata</span></div>
+              <p>Conducting research in Human-Computer Interaction, focusing on innovative interfaces and user experience design.</p>
+            </div>
+          </div>
+
+          <!-- IEEE EMBS Student Intern -->
+          <div class="timeline-item">
+            <span class="timeline-date">June – July 2025</span>
+            <div class="timeline-content">
+              <h3>IEEE EMBS Student Intern</h3>
+              <div class="timeline-org"><span style="color: var(--primary); font-weight: 600;">IEEE Engineering Medicine and Biology Society</span> • <span style="color: rgb(254, 254, 228);">Pune</span></div>
+              <p>Developed Deep Learning models for Epileptic Seizure Detection and Prediction (CNN-BiLSTM, Autoencoder, Attention MLP) under mentorship of Prof. Sneha Deshmukh.</p>
+            </div>
+          </div>
+
+          <!-- Open Source Contributor -->
+          <div class="timeline-item">
+            <span class="timeline-date">Jan – Mar 2025</span>
+            <div class="timeline-content">
+              <h3>Open Source Contributor</h3>
+              <div class="timeline-org"><span style="color: var(--primary); font-weight: 600;">Social Winter of Code (SWOC)</span> • <span style="color: rgb(254, 254, 228);">Remote</span></div>
+              <p>Actively contributed to open-source and resolved issues and solved front-end & back-end issues.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Affiliations & Memberships Section -->
+      <section id="affiliations" class="section-padding container">
+        <h2>Affiliations & <span class="text-gradient">Memberships</span></h2>
+        <div class="affiliations-grid">
+          
+          <!-- GDG Student Member -->
+          <div class="affiliation-card">
+            <div class="affiliation-header">
+              <div class="affiliation-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              </div>
+              <div class="affiliation-info">
+                <h3>GDG Student Member</h3>
+                <div class="affiliation-org">Google Developer Groups on Campus, IEM</div>
+              </div>
+            </div>
+            <p class="affiliation-desc">
+              Participating in Google Developer Groups activities, contributing to tech events, workshops, and community projects at IEM.
+            </p>
+            <div class="affiliation-footer">
+              <span>Sept 2025 – Present</span>
+            </div>
+          </div>
+
+          <!-- S4DS Student Member -->
+          <div class="affiliation-card">
+            <div class="affiliation-header">
+              <div class="affiliation-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+              </div>
+              <div class="affiliation-info">
+                <h3>Technical Lead</h3>
+                <div class="affiliation-org">Society for Data Science (S4DS)</div>
+              </div>
+            </div>
+            <p class="affiliation-desc">
+              Spearheading technical operations, managing data science events, and evaluating projects for the IEM Student Chapter.
+            </p>
+            <div class="affiliation-footer">
+              <span>Sept 2024 – Present</span>
+              <span class="badge" style="background: #f59e0b;">Leadership</span>
+            </div>
+          </div>
+
+          <!-- IEEE Team Member -->
+          <div class="affiliation-card">
+            <div class="affiliation-header">
+              <div class="affiliation-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              </div>
+              <div class="affiliation-info">
+                <h3>AI/ML Team Member</h3>
+                <div class="affiliation-org">IEEE Computer Society, IEM Chapter</div>
+              </div>
+            </div>
+            <p class="affiliation-desc">
+              Actively participating in IEEE events, hackathons, and research collaborations to contribute to global technical advancements.
+            </p>
+            <div class="affiliation-footer">
+              <span>Aug 2024 – Present</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="section-padding container">
+        <div
+          style="
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding-top: 12px
-        }
+            align-items: end;
+            margin-bottom: 40px;
+          "
+        >
+          <h2>Featured <span class="text-gradient">Projects</span></h2>
+          <a
+            href="https://github.com/stars/SupratikB23/lists/personal-projects"
+            class="btn btn-outline"
+            style="padding: 8px 16px; font-size: 0.9rem"
+            >View All</a
+          >
+        </div>
 
-        .meta .name {
-            font-weight: 700
-        }
-
-        .skills {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-top: 12px
-        }
-
-        .pill {
-            display: inline-block;
-            padding: 6px 12px;
-            border-radius: 9999px;
-            background: rgba(255, 255, 255, 0.06);
-            color: #fff;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.25s ease;
-            cursor: default;
-        }
-
-        .pill:hover {
-            background: linear-gradient(90deg, var(--accent), #06b6d4);
-            color: #fff;
-            box-shadow: 0 0 12px rgba(6, 182, 212, 0.6);
-            transform: translateY(-2px) scale(1.05);
-        }
-
-
-        /* About Me */
-        section.about {
-            padding: 32px 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .about-left {
-            background: var(--card);
-            padding: 20px;
-            border-radius: 12px;
-            line-height: 1.6;
-            color: var(--muted);
-        }
-
-        .about-left h2,
-        .about-left h3,
-        .about-left h4 {
-            margin-top: 0;
-        }
-
-        h2 .accent {
-            background: linear-gradient(90deg, var(--accent), #06b6d4);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .about-right {
-            display: flex;
-            flex-direction: column;
-            gap: 16px
-        }
-
-        .about-box {
-            background: var(--card);
-            padding: 18px;
-            border-radius: 12px;
-            box-shadow: 0 4px 14px rgba(2, 6, 23, 0.5)
-        }
-
-        .about-box h3 {
-            margin: 0 0 8px;
-            color: white
-        }
-
-        /* Projects */
-        section.projects {
-            padding: 32px 0
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 5px
-        }
-
-        .proj {
-            background: var(--card);
-            padding: 14px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.02);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-            transition: transform 0.2s ease, box-shadow 0.2s ease
-        }
-
-        .proj:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45)
-        }
-
-        .proj-title {
-            font-weight: 700;
-            margin: 8px 0
-        }
-
-        .proj-desc {
-            color: #9ab2db;
-            font-size: 15px
-        }
-
-        .proj a {
-            display: inline-block;
-            margin-top: 12px;
-            text-decoration: none;
-            color: var(--accent);
-            font-weight: 600
-        }
-
-        .pill2 {
-            display: inline-block;
-            padding: 6px 12px;
-            border-radius: 9999px;
-            background: rgba(255, 255, 255, 0.06);
-            color: #fff;
-            font-size: 12px;
-            font-weight: 500;
-            transition: all 0.25s ease;
-            cursor: default;
-        }
-
-        .pill2:hover {
-            background: linear-gradient(90deg, var(--accent), #06b6d4);
-            color: #fff;
-            box-shadow: 0 0 12px rgba(6, 182, 212, 0.6);
-            transform: translateY(-2px) scale(1.05);
-        }
-
-        /* Skills + Contact */
-        .split {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-top: 28px
-        }
-
-        .card {
-            background: var(--card);
-            padding: 18px;
-            border-radius: 12px
-        }
-
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px
-        }
-
-        footer {
-            padding: 28px 0;
-            color: var(--muted);
-            text-align: center
-        }
-
-        /* Responsive */
-        @media (max-width:980px) {
-            .hero {
-                grid-template-columns: 1fr
-            }
-
-            .projects-grid {
-                grid-template-columns: repeat(2, 1fr)
-            }
-
-            .split {
-                grid-template-columns: 1fr
-            }
-
-            section.about {
-                grid-template-columns: 1fr
-            }
-        }
-
-        @media (max-width:560px) {
-            .projects-grid {
-                grid-template-columns: 1fr
-            }
-
-            nav a {
-                display: none
-            }
-
-            .logo {
-                width: 46px;
-                height: 46px
-            }
-
-            .avatar {
-                height: 180px
-            }
-        }
-
-        /* small utilities */
-        .muted {
-            color: var(--muted)
-        }
-
-        .grid-cols-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px
-        }
-    </style>
-</head>
-
-<body>
-    <div class="container">
-        <header>
-            <div class="brand">
-                <div class="logo">S</div>
-                <div>
-                    <div style="font-weight:700">Supratik</div>
-                    <div style="font-size:13px;color:var(--muted)">AI / ML Enthusiast • Research Student • Sophomore</div>
-                </div>
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div class="project-card">
+            <div class="project-header">
+              <svg class="folder-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+              <div class="project-links">
+                <a href="https://github.com/SupratikB23/Epilepsy-Prediction-and-Detection" title="GitHub Repo"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+              </div>
             </div>
-            <nav>
-                <a href="#skills">Skills</a>
-                <a href="#education">Education</a>
-                <a href="#experience">Experience</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </header>
-
-        <main>
-            <section class="hero">
-                <div class="intro">
-                    <h1>Hi — I'm <span class="accent">SUPRATIK Bhowal</span></h1>
-                    <p class="lead">Undergraduate CS Sophomore student specializing in AI & ML. I build AI models, contribute to open-source, and explore real-world applications.<br>Currently learning Advanced DL Frameworks, LLMs Architecture & RL Applications.</p>
-                    <div class="cta">
-                        <a class="btn primary" href="#projects">See Projects</a>
-                        <a class="btn" href="#contact">Hire me</a>
-                    </div>
-
-                    <div class="split" style="margin-top:22px">
-                        <div class="card">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm0 2v.01L12 13 20 6.01V6H4zm0 12h16V8l-8 7-8-7v10z" />
-                            </svg>
-                            <a href="mailto:supratikbhowal23@gmail.com">supratikbhowal23@gmail.com</a>
-                        </div>
-                        <div class="card">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.77 0 5-2.24 5-5v-14c0-2.76-2.23-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.29c-.97 0-1.75-.79-1.75-1.76s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.76-1.75 1.76zm13.5 10.29h-3v-4.89c0-1.16-.02-2.65-1.62-2.65-1.63 0-1.88 1.27-1.88 2.57v5h-3v-9h2.88v1.23h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59v4.74z" />
-                            </svg>
-                            <a href="https://www.linkedin.com/in/supratikbhowal" target="_blank">LinkedIn</a>
-                        </div>
-                        <div class="card">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.1 3.29 9.4 7.86 10.94.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.69-3.88-1.54-3.88-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.07-.74.08-.72.08-.72 1.18.08 1.8 1.22 1.8 1.22 1.05 1.8 2.76 1.28 3.43.98.11-.76.41-1.28.75-1.57-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.45.11-3.02 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.9-.39c.99 0 1.99.13 2.9.39 2.2-1.49 3.18-1.18 3.18-1.18.63 1.57.23 2.73.11 3.02.74.81 1.19 1.83 1.19 3.09 0 4.43-2.69 5.41-5.25 5.69.42.37.8 1.1.8 2.23 0 1.61-.01 2.91-.01 3.31 0 .31.21.66.8.55A10.99 10.99 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z" />
-                            </svg>
-                            <a href="https://github.com/SupratikB23" target="_blank">GitHub</a>
-                        </div>
-                        <div class="card">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                <path fill="#8A2BE2" d="M160 64v352h64V288l128 128h80L288 256l144-160h-80L224 224V64h-64z" />
-                            </svg>
-
-                            <a href="https://www.kaggle.com/supratikbhowal" target="_blank">Kaggle</a>
-                        </div>
-                    </div>
-                </div>
-
-                <aside class="profile-card">
-                    <div class="avatar">
-                        <img src="https://raw.githubusercontent.com/SupratikB23/SupratikB23.github.io/main/pics/SelfPicture2.jpeg" alt="My Photo" width="2000" height="1200">
-                    </div>
-                    <div class="meta">
-                        <div>
-                            <div class="name">Supratik Bhowal</div>
-                            <div class="muted" style="font-size:13px">AI/ML Student</div>
-                        </div>
-                        <div style="text-align:right">
-                            <div style="font-weight:700">2</div>
-                            <div class="muted" style="font-size:13px">College Year</div>
-                        </div>
-                    </div>
-
-                </aside>
-            </section>
-
-            <!-- ABOUT ME Section -->
-            <section class="about">
-                <div class="about-left">
-                    <h2 style="color: rgb(255, 255, 255);">About<span class="accent"> Me</span></h2>
-                    <div class="underline"></div>
-                    <p>I am an undergraduate Computer Science student specializing in AI & ML at the
-                        <span style="color:#06b6d4;font-weight:600">Institute of Engineering and Management, Kolkata</span>.
-                        Passionate about building intelligent systems, deep learning models, and contributing to impactful open-source projects.
-                    </p>
-                    <p>My journey in artificial intelligence is driven by curiosity and the desire to solve real-world problems through innovative machine learning solutions. I specialize in deep learning architectures, particularly in areas like seizure prediction and real-time signal processing.</p>
-                    <p>When I'm not coding or researching, you'll find me contributing to open-source projects, participating in hackathons, or exploring the latest developments in AI and machine learning.</p>
-                </div>
-
-                <div class="about-right">
-                    <div class="about-box">
-                        <div style="display:flex;align-items:center;gap:10px">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#22d3ee">
-                                <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" />
-                                <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" />
-                                <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" />
-                                <path d="M17.599 6.5a3 3 0 0 0 .399-1.375" />
-                                <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" />
-                                <path d="M3.477 10.896a4 4 0 0 1 .585-.396" />
-                                <path d="M19.938 10.5a4 4 0 0 1 .585.396" />
-                                <path d="M6 18a4 4 0 0 1-1.967-.516" />
-                                <path d="M19.967 17.484A4 4 0 0 1 18 18" />
-                            </svg>
-                            <h3 style="color:#22d3ee;margin:0">AI Research</h3>
-                        </div>
-                        <p class="muted">Presently writing a review paper on Scientific ML, developing a new RL Project & working on Human-Computer Interaction</p>
-                    </div>
-
-                    <div class="about-box">
-                        <div style="display:flex;align-items:center;gap:10px">
-                            <svg xmlns="http://www.w3.org/2000/svg" svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="#10b981">
-                                <polyline points="16,18 22,12 16,6" />
-                                <polyline points="8,6 2,12 8,18" />
-                            </svg>
-                            <h3 style="color:#10b981;margin:0">Open Source</h3>
-                        </div>
-                        <p class="muted">Active contributor to various open-source projects and communities, sharing knowledge and building tools for the developer ecosystem.</p>
-                    </div>
-
-                    <div class="about-box">
-                        <div style="display:flex;align-items:center;gap:10px">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#3b82f6">
-                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 6 
-              4 4 6.5 4c1.74 0 3.41 1.01 4.13 2.44h.74C13.09 5.01 14.76 4 
-              16.5 4 19 4 21 6 21 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                            </svg>
-                            <h3 style="color:#3b82f6;margin:0">Innovation</h3>
-                        </div>
-                        <p class="muted">Passionate about creating technology that makes a positive impact on society and improves people's lives through intelligent solutions.</p>
-                    </div>
-                </div>
-
-            </section>
-
-            <!-- TECHNICAL SKILLS Section -->
-            <section id="skills" class="skills-section" style="padding:10px 0">
-                <h2 style="text-align:center;margin:0 0 12px">Technical <span class="accent">Skills</span></h2>
-                <p style="text-align:center;color:var(--muted);max-width:700px;margin:0 auto 28px">
-                    A comprehensive toolkit for building intelligent systems and solving complex problems
-                </p>
-
-                <div class="grid-cols-2">
-                    <div class="card">
-                        <h3 style="margin:0 0 12px;display:flex;align-items:center;gap:8px;color:#22d3ee">
-                            Programming Languages
-                        </h3>
-                        <div class="skill-list">
-                            <div class="pill">Python</div>
-                            <div class="pill">Objective-C</div>
-                            <div class="pill">C++</div>
-                            <div class="pill">SQL</div>
-                            <div class="pill">MATLAB</div>
-                            <div class="pill">HTML</div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <h3 style="margin:0 0 12px;display:flex;align-items:center;gap:8px;color:#35dea0">
-                            Frameworks & Libraries
-                        </h3>
-                        <div class="skill-list">
-                            <div class="pill">Pandas</div>
-                            <div class="pill">NumPy</div>
-                            <div class="pill">Matplotlib</div>
-                            <div class="pill">Seaborn</div>
-                            <div class="pill">Scikit-Learn</div>
-                            <div class="pill">TensorFlow</div>
-                            <div class="pill">PyTorch</div>
-                            <div class="pill">Keras</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid-cols-2" style="margin-top:18px">
-                    <div class="card">
-                        <h3 style="margin:0 0 12px;display:flex;align-items:center;gap:8px;color:#673afc">
-                            Technologies
-                        </h3>
-                        <div class="skill-list">
-                            <div class="pill">Machine Learning</div>
-                            <div class="pill">Deep Learning</div>
-                            <div class="pill">Git</div>
-                            <div class="pill">Weights & Biases</div>
-                            <div class="pill">Feature Engineering</div>
-                            <div class="pill">Kaggle</div>
-                            <div class="pill">Hugging Face</div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <h3 style="margin:0 0 12px;display:flex;align-items:center;gap:8px;color:#c564f5">
-                            Languages
-                        </h3>
-                        <div class="skill-list">
-                            <div class="pill">English (Professional)</div>
-                            <div class="pill">Bengali (Native)</div>
-                            <div class="pill">Hindi (Limited Proficiency)</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card" style="margin-top:18px; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:16px 24px;">
-                    <h3 style="margin:0; color:#f59e0b; flex:1">
-                        Data Structures & Algorithms (DSA)
-                    </h3>
-                    <p class="muted" style="margin:0; text-align:center; flex:2">
-                        Track my DSA journey and problem-solving skills on LeetCode.
-                    </p>
-                    <a href="https://leetcode.com/u/Supratik23//" target="_blank" class="btn primary" style="padding:8px 16px; font-size:14px; flex:0">
-                        View LeetCode
-                    </a>
-                </div>
-
-            </section>
-
-
-
-            <!-- EDUCATION & LEARNING Section -->
-            <section id="education" class="education" style="padding:80px 0">
-                <h2 style="text-align:center;margin-bottom:12px">
-                    Education & <span class="accent">Learning</span>
-                </h2>
-                <p style="text-align:center;color:var(--muted);max-width:700px;margin:0 auto 28px">
-                    Building a strong foundation in computer science and artificial intelligence
-                </p>
-
-                <!-- Stacked cards -->
-                <div style="display:flex; flex-direction:column; gap:20px; max-width:700px; margin:0 auto;">
-
-                    <!-- College -->
-                    <div class="card" style="padding:16px; display:flex; flex-direction:column; gap:12px;">
-                        <!-- Header: College + Dates + YGPA -->
-                        <div style="display:flex; justify-content:space-between; align-items:flex-start; width:100%;">
-
-                            <div style="display:flex; flex-direction: column; gap:4px; flex:1;">
-                                <div style="display:flex; align-items:center; gap:8px;">
-
-                                    <div style="font-weight:800">
-                                        Institute of Engineering and Management (IEM), Kolkata
-                                        <span style="background:#022bf7;color:white;font-size:12px;padding:2px 6px;border-radius:6px;margin-left:6px;">Current</span>
-                                    </div>
-                                </div>
-                                <div class="muted" style="font-size:13px;">2024–Present</div>
-                            </div>
-                            <!-- Right-aligned YGPA -->
-                            <div style="font-weight:600; color:#ed4040; white-space:nowrap; font-size:16px; text-align:right; flex-basis:150px;">
-                                YGPA: 9.11 (1st yr)
-                            </div>
-
-                        </div>
-
-                        <!-- Degree -->
-                        <div style="font-weight:500; color:#4082ed;  text-align:left;">B.Tech Computer Science (AI & ML)</div>
-                        <br>
-                        <!-- Relevant Courses -->
-                        <div style="font-weight:600; color:white; text-align:left;">Relevant Courses:</div>
-                        <div style="display:flex; gap:6px; flex-wrap: wrap; justify-content:flex-start;">
-                            <div class="pill">Machine Learning</div>
-                            <div class="pill">DSA</div>
-                            <div class="pill">DAA</div>
-                            <div class="pill">C Programming</div>
-                        </div>
-                    </div>
-
-                    <!-- High School -->
-                    <div class="card" style="padding:16px; display:flex; flex-direction:column; gap:12px;">
-                        <!-- Header: School + Dates + Percentages -->
-                        <div style="display:flex; justify-content:space-between; align-items:flex-start; width:100%;">
-
-                            <div style="display:flex; flex-direction: column; gap:4px; flex:1;">
-                                <div style="display:flex; align-items:center; gap:8px;">
-
-                                    <div style="font-weight:800">South Point High School (SPHS), Kolkata</div>
-                                </div>
-                                <div class="muted" style="font-size:13px">2010–2024</div>
-                            </div>
-                            <!-- Right-aligned Percentages -->
-                            <div style="font-weight:600; color:#ed4040; white-space:nowrap; font-size:16px; text-align:right; flex-basis:150px;">
-                                90% (12th), 95% (10th)
-                            </div>
-
-                        </div>
-
-                        <!-- Degree -->
-                        <div style="font-weight:500; color:#4082ed; text-align:left;">PCM with Computer Science</div>
-                        <br>
-                        <!-- Relevant Courses -->
-                        <div style="font-weight:600; color:white; text-align:left;">Relevant Courses:</div>
-                        <div style="display:flex; gap:6px; flex-wrap: wrap; justify-content:flex-start;">
-                            <div class="pill">Python Programming</div>
-                            <div class="pill">MySQL</div>
-                            <div class="pill">HTML</div>
-                            <div class="pill">Computer Networks</div>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-
-            <!-- PROFESSIONAL EXPERIENCE Section -->
-            <section id="experience" class="experience" style="padding:0px 0">
-                <h2 style="text-align:center;margin-bottom:12px;">
-                    Professional <span class="accent">Experience</span>
-                </h2>
-                <p style="text-align:center;color:var(--muted);max-width:700px;margin:0 auto 28px;">
-                    Building expertise through research, internships, and community involvement
-                </p>
-
-                <!-- Stacked Experience Cards -->
-                <div style="display:flex; flex-direction:column; gap:10px; max-width:700px; margin:0 auto;">
-
-                    <!-- HCI Research Intern -->
-                    <div class="card" style="padding:16px; display:flex; flex-direction:column; gap:12px;">
-                        <!-- Header -->
-                        <div style="display:flex; justify-content:space-between; align-items:flex-start; width:100%;">
-                            <div style="display:flex; flex-direction:column; gap:4px; flex:1;">
-                                <div style="font-weight:800; color:white;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#06b6d4" viewBox="0 0 24 24">
-                                        <path d="M9 3v2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-4V3"></path>
-                                        <path d="M9 12h6"></path>
-                                    </svg> HCI Research Intern
-                                    <span style="background:#24bf62;color:white;font-size:12px;padding:2px 6px;border-radius:6px;margin-left:6px;">Internship</span>
-                                    <span style="background:#022bf7;color:white;font-size:12px;padding:2px 6px;border-radius:6px;margin-left:6px;">Current</span>
-                                </div>
-                                <div style="color:#06b6d4; font-weight:600;">IEM with IIT Mandi Chapter</div>
-                                <div class="muted" style="font-size:13px;">📍 Kolkata, India</div>
-                            </div>
-                            <!-- Right-aligned Duration -->
-                            <div style="font-weight:600; color:#f59e0b; white-space:nowrap; font-size:16px; text-align:right; flex-basis:150px;">
-                                📅 July 2025 – Present
-                            </div>
-                        </div>
-                        <div style="color:var(--muted); font-size:14px;">
-                            Conducting research in Human-Computer Interaction, focusing on innovative interfaces and user experience design.
-                        </div>
-                    </div>
-
-                    <!-- IEEE EMBS Student Intern -->
-                    <div class="card" style="padding:16px; display:flex; flex-direction:column; gap:12px;">
-                        <!-- Header -->
-                        <div style="display:flex; justify-content:space-between; align-items:flex-start; width:100%;">
-                            <div style="display:flex; flex-direction:column; gap:4px; flex:1;">
-                                <div style="font-weight:800; color:white;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#06b6d4" viewBox="0 0 24 24">
-                                        <path d="M9 3v2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-4V3"></path>
-                                        <path d="M9 12h6"></path>
-                                    </svg> IEEE EMBS Student Intern
-                                    <span style="background:#24bf62;color:white;font-size:12px;padding:2px 6px;border-radius:6px;margin-left:6px;">Internship</span>
-                                </div>
-                                <div style="color:#06b6d4; font-weight:600;">IEEE Engineering Medicine and Biology Society</div>
-                                <div class="muted" style="font-size:13px;">📍 Pune, India</div>
-                            </div>
-                            <!-- Right-aligned Duration -->
-                            <div style="font-weight:600; color:#f59e0b; white-space:nowrap; font-size:16px; text-align:right; flex-basis:150px;">
-                                📅 June – July 2025
-                            </div>
-                        </div>
-                        <div style="color:var(--muted); font-size:14px;">
-                            Developed Deep Learning models for Epileptic Seizure Detection and Prediction using advanced neural network (CNN-BiLSTM, Autoencoder, Attention MLP) under mentorship of Prof. Sneha Deshmukh.
-                        </div>
-                    </div>
-
-                    <!-- Open Source Contributor -->
-                    <div class="card" style="padding:16px; display:flex; flex-direction:column; gap:12px;">
-                        <!-- Header -->
-                        <div style="display:flex; justify-content:space-between; align-items:flex-start; width:100%;">
-                            <div style="display:flex; flex-direction:column; gap:4px; flex:1;">
-                                <div style="font-weight:800; color:white;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#06b6d4" viewBox="0 0 24 24">
-                                        <path d="M9 3v2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-4V3"></path>
-                                        <path d="M9 12h6"></path>
-                                    </svg> Open Source Contributor
-                                    <span style="background:#af50d4;color:white;font-size:12px;padding:2px 6px;border-radius:6px;margin-left:6px;">Contribution</span>
-                                </div>
-                                <div style="color:#06b6d4; font-weight:600;">Social Winter of Code (SWOC)</div>
-                                <div class="muted" style="font-size:13px;">📍 Remote</div>
-                            </div>
-                            <!-- Right-aligned Duration -->
-                            <div style="font-weight:600; color:#f59e0b; white-space:nowrap; font-size:16px; text-align:right; flex-basis:150px;">
-                                📅 Jan – Mar 2025
-                            </div>
-                        </div>
-                        <div style="color:var(--muted); font-size:14px;">
-                            Actively contributed to open-source and resolved issues and solved front-end & back-end issues.
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-
-            <!-- AFFILIATIONS & MEMBERSHIPS Section -->
-            <section class="affiliations" style="padding:70px 0">
-                <h2 style="text-align:center;margin-bottom:12px;">
-                    Affiliations & <span class="accent">Memberships</span>
-                </h2>
-                <p style="text-align:center;color:var(--muted);max-width:700px;margin:0 auto 28px;">
-                    Engaging in professional and technical communities to foster collaboration & innovation </p>
-
-                <!-- Stacked Membership Cards -->
-                <div style="display:flex; flex-direction:column; gap:20px; max-width:700px; margin:0 auto;">
-
-
-                    <!-- GDG Student Member -->
-                    <div class="card" style="padding:16px; display:flex; flex-direction:column; gap:12px;">
-                        <div style="display:flex; justify-content:space-between; align-items:flex-start; width:100%;">
-                            <div style="display:flex; flex-direction:column; gap:4px; flex:1;">
-                                <div style="font-weight:800; color:white;">
-                                    <!-- TEAM ICON (Minimalist, Balanced Style) -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#06b6d4" viewBox="0 0 24 24">
-                                        <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 
-              0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 
-              3.5V19h14v-2.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 
-              1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
-                                    </svg>
-                                    GDG Student Member
-                                </div>
-                                <div style="color:#0e7dc7; font-weight:530;"> Google Developer Groups on Campus, IEM</div>
-                            </div>
-                            <div style="font-weight:600; color:#2ade16; white-space:nowrap; font-size:16px; text-align:right; flex-basis:150px;">
-                                📅 Sept 2025 – Present
-                            </div>
-                        </div>
-                        <div style="color:var(--muted); font-size:14px;">
-                            Participating in Google Developer Groups activities, contributing to tech events, workshops, and community projects at IEM.
-                        </div>
-                    </div>
-
-                    <!-- S4DS Student Member -->
-                    <div class="card" style="padding:16px; display:flex; flex-direction:column; gap:12px;">
-                        <div style="display:flex; justify-content:space-between; align-items:flex-start; width:100%;">
-                            <div style="display:flex; flex-direction:column; gap:4px; flex:1;">
-                                <div style="font-weight:800; color:white;">
-                                    <!-- TEAM ICON (Creative Collab Style) -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#06b6d4" viewBox="0 0 24 24">
-                                        <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.33 0-10 1.67-10 5v3h20v-3c0-3.33-6.67-5-10-5z" />
-                                    </svg>
-
-                                    Technical Lead
-                                    <span style="background:#f59e0b;color:white;font-size:12px;padding:2px 6px;border-radius:6px;margin-left:6px;">Leadership</span>
-                                </div>
-
-                                <div style="color:#0e7dc7; font-weight:530;">Society for Data Science (S4DS), IEM Student Chapter</div>
-                            </div>
-                            <div style="font-weight:600; color:#2ade16; white-space:nowrap; font-size:16px; text-align:right; flex-basis:150px;">
-                                📅 Sept 2024 – Present
-                            </div>
-                        </div>
-                        <div style="color:var(--muted); font-size:14px;">
-                            Spearheading technical operations, managing data science events, and evaluating projects for the IEM Student Chapter.
-                        </div>
-                    </div>
-
-                    <!-- IEEE Team Member -->
-                    <div class="card" style="padding:16px; display:flex; flex-direction:column; gap:12px;">
-                        <!-- Header -->
-                        <div style="display:flex; justify-content:space-between; align-items:flex-start; width:100%;">
-                            <div style="display:flex; flex-direction:column; gap:4px; flex:1;">
-                                <div style="font-weight:800; color:white;">
-                                    <!-- SVG ICON -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#06b6d4" viewBox="0 0 24 24">
-                                        <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 
-              0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 
-              3.5V19h14v-2.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 
-              1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
-                                    </svg>
-                                    AI/ML Team Member
-                                </div>
-                                <div style="color:#0e7dc7; font-weight:530;">IEEE Computer Society, IEM Chapter</div>
-                            </div>
-                            <!-- Right-aligned Duration -->
-                            <div style="font-weight:600; color:#2ade16; white-space:nowrap; font-size:16px; text-align:right; flex-basis:150px;">
-                                📅 Aug 2024 – Present
-                            </div>
-                        </div>
-                        <div style="color:var(--muted); font-size:14px;">
-                            Actively participating in IEEE events, hackathons, and research collaborations to contribute to global technical advancements.
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-
-
-
-            <!-- PROJECTS -->
-            <section id="projects" class="projects">
-                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
-                    <h2 style="margin:0">Selected <span class="accent">Projects</span></h2>
-                    <a href="https://github.com/stars/SupratikB23/lists/personal-projects" class="muted">View all on GitHub →</a>
-                </div>
-
-                <div class="projects-grid">
-
-                    <article class="proj">
-                        <div class="proj-title">Epilepsy Prediction & Detection </div>
-                        <div class="proj-desc">Developed DL algorithms for both real-time Epileptic Seizure Detection and Prediction on EEG signals. The CNN-BiLSTM model achieved 98% prediction accuracy, while the Transformer model showed 89% detection accuracy.</div>
-                        <br>
-                        <div style="font-weight:600; color:#e0e0e0; text-align:left; font-size:15px; margin-bottom:4px;">
-                            Technologies Used:
-                        </div>
-                        <div style="display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-start; margin-bottom:8px;">
-                            <div class="pill2" font-size:12px>Python</div>
-                            <div class="pill2" font-size:12px>Scikit-learn</div>
-                            <div class="pill2" font-size:12px>Tensorflow</div>
-                            <div class="pill2" font-size:12px>Scipy</div>
-                            <div class="pill2" font-size:12px>Keras</div>
-                        </div>
-                        <a href="https://github.com/SupratikB23/Epilepsy-Prediction-and-Detection">Repo→</a>
-                    </article>
-
-                    <article class="proj">
-                        <div class="proj-title">Poker Hand Prediction Model</div>
-                        <div class="proj-desc">Built ML & DL models that predict poker hand categories based on dealt cards. Combined multiple algorithms including Random Forest, SVM, and MLP Classifier into a Stacking Classifier for enhanced performance.</div>
-                        <br>
-                        <div style="font-weight:600; color:#e0e0e0; text-align:left; font-size:15px; margin-bottom:4px;">
-                            Technologies Used:
-                        </div>
-                        <div style="display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-start; margin-bottom:8px;">
-                            <div class="pill2" font-size:12px>Python</div>
-                            <div class="pill2" font-size:12px>Scikit-learn</div>
-                            <div class="pill2" font-size:12px>NumPy</div>
-                            <div class="pill2" font-size:12px>Pandas</div>
-                        </div>
-                        <a href="https://github.com/SupratikB23/Poker-Hand-Prediction">Repo→</a>
-                        <a href="https://www.kaggle.com/code/supratikbhowal/poker-hand-prediction-model">Kaggle→</a>
-                    </article>
-
-                    <article class="proj">
-                        <div class="proj-title">HarmonyRL</div>
-                        <div class="proj-desc">Deep Learning framework for generating symbolic music (MIDI) using Supervised Learning, Reinforcement Learning (RL), and Diffusion-based Postprocessing.</div>
-                        <br>
-                        <div style="font-weight:600; color:#e0e0e0; text-align:left; font-size:15px; margin-bottom:4px;">
-                            Technologies Used:
-                        </div>
-                        <div style="display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-start; margin-bottom:8px;">
-                            <div class="pill2" font-size:12px>Python</div>
-                            <div class="pill2" font-size:12px>HuggingFace</div>
-                            <div class="pill2" font-size:12px>PyTorch</div>
-                            <div class="pill2" font-size:12px>Scipy</div>
-                            <div class="pill2" font-size:12px>Librosa</div>
-                        </div>
-                        <a href="https://github.com/SupratikB23/HarmonyRL">Repo→</a>
-                    </article>
-
-                    <article class="proj">
-                        <div class="proj-title">Neural Network for Multi Class Classification (ANN_MNIST_AdaAct)</div>
-                        <div class="proj-desc">Creating an ANN for Multi-Class Classification with Custom Ada-Act Function from scratch.</div>
-                        <br>
-                        <div style="font-weight:600; color:#e0e0e0; text-align:left; font-size:15px; margin-bottom:4px;">
-                            Technologies Used:
-                        </div>
-                        <div style="display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-start; margin-bottom:8px;">
-                            <div class="pill2" font-size:12px>Python</div>
-                            <div class="pill2" font-size:12px>NumPy</div>
-                            <div class="pill2" font-size:12px>Pandas</div>
-                            <div class="pill2" font-size:12px>Math</div>
-                        </div>
-                        <a href="https://github.com/SupratikB23/Neural-Network-for-Multi-Class-Classification">Repo→</a>
-                    </article>
-
-                    <article class="proj">
-                        <div class="proj-title">Sentiment Analysis & Recommendation System for App Data</div>
-                        <div class="proj-desc">Sentiment Classifier to analyze and predict the sentiment of user reviews collected from 1 million Google Play Store entries.</div>
-                        <br>
-                        <div style="font-weight:600; color:#e0e0e0; text-align:left; font-size:15px; margin-bottom:4px;">
-                            Technologies Used:
-                        </div>
-                        <div style="display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-start; margin-bottom:8px;">
-                            <div class="pill2" font-size:12px>Python</div>
-                            <div class="pill2" font-size:12px>Scikit-learn</div>
-                            <div class="pill2" font-size:12px>Tensorflow</div>
-                        </div>
-                        <a href="https://github.com/SupratikB23/Sentiment-Analysis-and-Recommendation-System-for-App-Review-Data">Repo→</a>
-                        <a href="https://www.kaggle.com/code/supratikbhowal/sentiment-classifier-for-app-data">Kaggle→</a>
-                    </article>
-
-                    <article class="proj">
-                        <div class="proj-title">Arabic Dates Classification (ResNet50)</div>
-                        <div class="proj-desc">A deep learning model using ResNet50 to classify and recognize different Arabic date varieties with high accuracy. (Open Source)</div>
-                        <br>
-                        <div style="font-weight:600; color:#e0e0e0; text-align:left; font-size:15px; margin-bottom:4px;">
-                            Technologies Used:
-                        </div>
-                        <div style="display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-start; margin-bottom:8px;">
-                            <div class="pill2" font-size:12px>Python</div>
-                            <div class="pill2" font-size:12px>PyTorch</div>
-                            <div class="pill2" font-size:12px>ResNet50</div>
-                        </div>
-                        <a href="https://github.com/SupratikB23/Arabic-Dates-Classification">Repo→</a>
-                        <a href="https://www.kaggle.com/code/supratikbhowal/arabic-dates-classification-resnet50">Kaggle→</a>
-                    </article>
-                </div>
-
-            </section>
-
-
-            <section id="contact" style="padding-top:32px">
-                <h2>Contact</h2>
-                <div class="card" style="display:flex;align-items:center;justify-content:space-between;gap:16px">
-                    <div>
-                        <div style="font-weight:700">Let's build something.</div>
-                        <div class="muted">Email me at <a href="mailto:supratikbhowal23@gmail.com" style="color:var(--accent);text-decoration:none">supratikbhowal23@gmail.com</a></div>
-                    </div>
-                    <div style="text-align:right">
-                        <div class="muted">Or find me on</div>
-                        <div style="margin-top:6px"><a href="https://github.com/SupratikB23" class="pill">GitHub</a> <a href="https://www.linkedin.com/in/supratik-bhowal-b58906319/" class="pill">LinkedIn</a></div>
-                    </div>
-                </div>
-            </section>
-
-        </main>
-
-        <footer>
-            <div>© <span id="year"></span> Supratik Bhowal — Built with HTML & CSS • Deploy on GitHub Pages</div>
-        </footer>
-    </div>
+            <h3 class="project-title">Epilepsy Prediction & Detection</h3>
+            <p class="project-desc">
+              DL algorithms for real-time Seizure Detection/Prediction on EEG signals. CNN-BiLSTM achieved 98% prediction accuracy, while the Transformer model showed 89% detection accuracy.
+            </p>
+            <div class="project-tech">
+              <span>Python</span>
+              <span>Scikit-learn</span>
+              <span>TensorFlow</span>
+              <span>Scipy</span>
+              <span>Keras</span>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card">
+            <div class="project-header">
+              <svg class="folder-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+              <div class="project-links">
+                <a href="https://github.com/SupratikB23/Poker-Hand-Prediction" title="GitHub Repo"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                <a href="https://www.kaggle.com/code/supratikbhowal/poker-hand-prediction-model" title="Kaggle"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+              </div>
+            </div>
+            <h3 class="project-title">Poker Hand Prediction Model</h3>
+            <p class="project-desc">
+              Built ML & DL models that predict poker hand categories based on dealt cards. Combined multiple algorithms including Random Forest, SVM, and MLP Classifier into a Stacking Classifier for enhanced performance.
+            </p>
+            <div class="project-tech">
+              <span>Python</span>
+              <span>Scikit-learn</span>
+              <span>NumPy</span>
+              <span>Pandas</span>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card">
+            <div class="project-header">
+              <svg class="folder-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+              <div class="project-links">
+                <a href="https://github.com/SupratikB23/HarmonyRL" title="GitHub Repo"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+              </div>
+            </div>
+            <h3 class="project-title">HarmonyRL</h3>
+            <p class="project-desc">
+              Deep Learning framework for generating symbolic music (MIDI) using Supervised Learning, Reinforcement Learning (RL), and Diffusion-based Postprocessing.
+            </p>
+            <div class="project-tech">
+              <span>Python</span>
+              <span>HuggingFace</span>
+              <span>PyTorch</span>
+              <span>Scipy</span>
+              <span>Librosa</span>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="project-card">
+            <div class="project-header">
+              <svg class="folder-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+              <div class="project-links">
+                <a href="https://github.com/SupratikB23/Neural-Network-for-Multi-Class-Classification" title="GitHub Repo"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+              </div>
+            </div>
+            <h3 class="project-title">ANN for Multi-Class Classification</h3>
+            <p class="project-desc">
+              Creating an ANN for Multi-Class Classification with Custom Ada-Act Function from scratch.
+            </p>
+            <div class="project-tech">
+              <span>Python</span>
+              <span>NumPy</span>
+              <span>Pandas</span>
+              <span>Math</span>
+            </div>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="project-card">
+            <div class="project-header">
+              <svg class="folder-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+              <div class="project-links">
+                <a href="https://github.com/SupratikB23/Sentiment-Analysis-and-Recommendation-System-for-App-Review-Data" title="GitHub Repo"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                <a href="https://www.kaggle.com/code/supratikbhowal/sentiment-classifier-for-app-data" title="Kaggle"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+              </div>
+            </div>
+            <h3 class="project-title">Sentiment Analysis & Recommendation</h3>
+            <p class="project-desc">
+              Sentiment Classifier to analyze and predict the sentiment of user reviews collected from 1 million Google Play Store entries.
+            </p>
+            <div class="project-tech">
+              <span>Python</span>
+              <span>Scikit-learn</span>
+              <span>Tensorflow</span>
+            </div>
+          </div>
+
+          <!-- Project 6 -->
+          <div class="project-card">
+            <div class="project-header">
+              <svg class="folder-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+              <div class="project-links">
+                <a href="https://github.com/SupratikB23/Arabic-Dates-Classification" title="GitHub Repo"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                <a href="https://www.kaggle.com/code/supratikbhowal/arabic-dates-classification-resnet50" title="Kaggle"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+              </div>
+            </div>
+            <h3 class="project-title">Arabic Dates Classification</h3>
+            <p class="project-desc">
+              A deep learning model using ResNet50 to classify and recognize different Arabic date varieties with high accuracy. (Open Source)
+            </p>
+            <div class="project-tech">
+              <span>Python</span>
+              <span>PyTorch</span>
+              <span>ResNet50</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="section-padding container">
+        <div class="contact-box">
+          <h2>
+            Let's Build Something <span class="text-gradient">Amazing</span>
+          </h2>
+          <p>
+            I'm always open to discussing new projects, creative ideas, or
+            opportunities to be part of your visions.
+          </p>
+          <a href="mailto:supratikbhowal23@gmail.com" class="btn btn-primary"
+            >Say Hello</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>© <span id="year"></span> Supratik Bhowal. Built with HTML & CSS.</p>
+      </div>
+    </footer>
 
     <script>
-        try {
-            document.getElementById('year').textContent = new Date().getFullYear()
-        } catch (e) {}
+      document.getElementById("year").textContent = new Date().getFullYear();
     </script>
-
-
-</body>
-
+  </body>
 </html>
