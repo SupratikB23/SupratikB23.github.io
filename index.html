@@ -1,1341 +1,1289 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Supratik Bhowal — AI & ML Portfolio</title>
-    <meta
-      name="description"
-      content="Personal portfolio of Supratik Bhowal — AI/ML Enthusiast & Research Student."
-    />
+    <meta name="description" content="Personal portfolio of Supratik Bhowal — AI/ML Enthusiast & Research Student." />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet" />
 
     <style>
-      :root {
-        /* Colors */
-        --bg-dark: #030712;
-        --bg-card: rgba(17, 24, 39, 0.7);
-        --bg-card-hover: rgba(31, 41, 55, 0.8);
-        --primary: #8b5cf6; /* Violet */
-        --primary-glow: rgba(139, 92, 246, 0.5);
-        --secondary: #06b6d4; /* Cyan */
-        --text-main: #f9fafb;
-        --text-muted: #9ca3af;
-        --border: rgba(255, 255, 255, 0.1);
-        --glass: rgba(255, 255, 255, 0.05);
+        :root {
+            /* Colors */
+            --bg-dark: #030712;
+            --bg-card: rgba(17, 24, 39, 0.7);
+            --bg-card-hover: rgba(31, 41, 55, 0.8);
+            --primary: #8b5cf6;
+            /* Violet */
+            --primary-glow: rgba(139, 92, 246, 0.5);
+            --secondary: #06b6d4;
+            /* Cyan */
+            --text-main: #f9fafb;
+            --text-muted: #9ca3af;
+            --border: rgba(255, 255, 255, 0.1);
+            --glass: rgba(255, 255, 255, 0.05);
 
-        /* Spacing & Layout */
-        --max-width: 1200px;
-        --radius: 16px;
-        --header-height: 70px;
-      }
-
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        font-family: "Inter", sans-serif;
-        background-color: var(--bg-dark);
-        color: var(--text-main);
-        line-height: 1.6;
-        overflow-x: hidden;
-        background-image: radial-gradient(
-            circle at 15% 50%,
-            rgba(139, 92, 246, 0.08),
-            transparent 25%
-          ),
-          radial-gradient(
-            circle at 85% 30%,
-            rgba(6, 182, 212, 0.08),
-            transparent 25%
-          );
-      }
-
-      /* Typography */
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        font-family: "Outfit", sans-serif;
-        color: #fff;
-        line-height: 1.2;
-      }
-
-      h1 {
-        font-size: clamp(2.5rem, 5vw, 4rem);
-        font-weight: 800;
-        letter-spacing: -0.02em;
-      }
-      h2 {
-        font-size: clamp(2rem, 4vw, 2.5rem);
-        font-weight: 700;
-        margin-bottom: 1rem;
-      }
-      h3 {
-        font-size: 1.25rem;
-        font-weight: 600;
-      }
-
-      a {
-        text-decoration: none;
-        color: inherit;
-        transition: color 0.2s;
-      }
-      p {
-        color: var(--text-muted);
-        margin-bottom: 1rem;
-      }
-
-      /* Utilities */
-      .container {
-        max-width: var(--max-width);
-        margin: 0 auto;
-        padding: 0 24px;
-      }
-
-      .text-gradient {
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 12px 24px;
-        border-radius: 12px;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        cursor: pointer;
-        border: 1px solid transparent;
-      }
-
-      .btn-primary {
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
-        color: white;
-        box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
-      }
-
-      .btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 30px rgba(139, 92, 246, 0.5);
-      }
-
-      .btn-outline {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid var(--border);
-        color: white;
-      }
-
-      .btn-outline:hover {
-        background: rgba(255, 255, 255, 0.1);
-        border-color: rgba(255, 255, 255, 0.2);
-      }
-
-      .section-padding {
-        padding: 80px 0;
-      }
-
-      /* Header */
-      header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: var(--header-height);
-        z-index: 1000;
-        background: rgba(3, 7, 18, 0.7);
-        backdrop-filter: blur(12px);
-        border-bottom: 1px solid var(--border);
-      }
-
-      header .container {
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .logo {
-        font-family: "Outfit", sans-serif;
-        font-weight: 700;
-        font-size: 1.5rem;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .logo-icon {
-        width: 36px;
-        height: 36px;
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 1.2rem;
-      }
-
-      nav {
-        display: flex;
-        gap: 32px;
-      }
-      nav a {
-        font-weight: 500;
-        color: var(--text-muted);
-        font-size: 0.95rem;
-      }
-      nav a:hover {
-        color: white;
-      }
-
-      /* Hero Section */
-      .hero {
-        padding-top: calc(var(--header-height) + 60px);
-        padding-bottom: 80px;
-        display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 60px;
-        align-items: center;
-      }
-
-      .hero-content h1 {
-        margin-bottom: 24px;
-      }
-      .hero-content .lead {
-        font-size: 1.15rem;
-        margin-bottom: 32px;
-        max-width: 600px;
-      }
-
-      .hero-actions {
-        display: flex;
-        gap: 16px;
-        margin-bottom: 40px;
-      }
-
-      .social-links {
-        display: flex;
-        gap: 16px;
-      }
-      .social-icon {
-        width: 44px;
-        height: 44px;
-        border-radius: 12px;
-        background: var(--glass);
-        border: 1px solid var(--border);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--text-muted);
-        transition: all 0.2s;
-      }
-      .social-icon:hover {
-        background: rgba(255, 255, 255, 0.1);
-        color: white;
-        transform: translateY(-2px);
-      }
-
-      .social-btn {
-        height: 44px;
-        padding: 0 20px;
-        border-radius: 12px;
-        background: var(--glass);
-        border: 1px solid var(--border);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--text-muted);
-        text-decoration: none;
-        transition: all 0.2s;
-        font-weight: 600;
-        font-size: 0.95rem;
-      }
-      .social-btn:hover {
-        background: rgba(255, 255, 255, 0.1);
-        color: white;
-        transform: translateY(-2px);
-        border-color: rgba(255, 255, 255, 0.2);
-      }
-
-      .hero-image {
-        position: relative;
-      }
-
-      .hero-image img {
-        width: 100%;
-        border-radius: 24px;
-        border: 1px solid var(--border);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        position: relative;
-        z-index: 1;
-      }
-
-      .hero-image::before {
-        content: "";
-        position: absolute;
-        inset: -20px;
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
-        border-radius: 32px;
-        opacity: 0.2;
-        filter: blur(40px);
-        z-index: 0;
-      }
-
-      /* Stats Grid */
-      .about-container {
-        display: grid;
-        grid-template-columns: 0.9fr 1.1fr;
-        gap: 60px;
-        align-items: center;
-      }
-      
-      @media (max-width: 968px) {
-        .about-container {
-          grid-template-columns: 1fr;
-          gap: 40px;
+            /* Spacing & Layout */
+            --max-width: 1200px;
+            --radius: 16px;
+            --header-height: 70px;
         }
-      }
 
-      .stats-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
-
-      .stat-card {
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        padding: 24px;
-        border-radius: var(--radius);
-        display: flex;
-        align-items: flex-start;
-        gap: 16px;
-        transition: transform 0.3s;
-      }
-
-      .stat-card:hover {
-        transform: translateY(-4px);
-        border-color: rgba(255, 255, 255, 0.2);
-      }
-
-      .stat-icon {
-        padding: 10px;
-        border-radius: 10px;
-        background: rgba(255, 255, 255, 0.05);
-        color: var(--secondary);
-      }
-
-      /* Skills Section */
-      .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 24px;
-      }
-
-      .skill-category {
-        background: linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        padding: 24px;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .skill-category:hover {
-        transform: translateY(-5px);
-        border-color: var(--secondary);
-        box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.2);
-        background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-      }
-
-      .skill-category h3 {
-        margin-bottom: 20px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-size: 1.1rem;
-        color: white;
-      }
-
-      .tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-      .tag {
-        padding: 8px 16px;
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.03);
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        transition: all 0.2s ease;
-        font-weight: 500;
-      }
-      .tag:hover {
-        background: rgba(6, 182, 212, 0.15);
-        color: var(--secondary);
-        border-color: var(--secondary);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(6, 182, 212, 0.2);
-      }
-
-      /* Projects Section */
-      .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-        gap: 32px;
-      }
-
-      .project-card {
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        padding: 24px;
-        transition: all 0.3s ease;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-      }
-
-      .project-card:hover {
-        transform: translateY(-8px);
-        border-color: rgba(139, 92, 246, 0.3);
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-      }
-
-      .project-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: 16px;
-      }
-
-      .folder-icon {
-        color: var(--primary);
-        width: 40px;
-        height: 40px;
-      }
-      .project-links {
-        display: flex;
-        gap: 12px;
-      }
-      .project-links a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 36px;
-        height: 36px;
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid var(--border);
-        color: var(--text-muted);
-        transition: all 0.3s ease;
-      }
-      .project-links a:hover {
-        background: var(--primary);
-        color: white;
-        border-color: var(--primary);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
-      }
-
-      .project-title {
-        font-size: 1.25rem;
-        font-weight: 700;
-        margin-bottom: 12px;
-        color: white;
-      }
-      .project-desc {
-        font-size: 0.95rem;
-        margin-bottom: 24px;
-        flex-grow: 1;
-      }
-
-      .project-tech {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        font-size: 0.85rem;
-        color: var(--text-muted);
-        font-family: "SF Mono", "Fira Code", monospace;
-      }
-
-      .project-tech span {
-        padding: 4px 10px;
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        transition: all 0.2s ease;
-        cursor: default;
-      }
-
-      .project-tech span:hover {
-        background: rgba(139, 92, 246, 0.15);
-        color: var(--primary);
-        border-color: var(--primary);
-        box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
-        transform: translateY(-1px);
-      }
-
-      /* Experience Section */
-      .timeline {
-        max-width: 800px;
-        margin: 0 auto;
-        position: relative;
-      }
-
-      .timeline::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 2px;
-        background: var(--border);
-      }
-
-      .timeline-item {
-        padding-left: 32px;
-        position: relative;
-        margin-bottom: 48px;
-      }
-
-      .timeline-item::after {
-        content: "";
-        position: absolute;
-        left: -6px;
-        top: 6px;
-        width: 14px;
-        height: 14px;
-        border-radius: 50%;
-        background: var(--bg-dark);
-        border: 2px solid var(--primary);
-      }
-
-      .timeline-date {
-        font-size: 0.9rem;
-        color: var(--secondary);
-        font-weight: 600;
-        margin-bottom: 8px;
-        display: inline-block;
-      }
-
-      .timeline-content h3 {
-        margin-bottom: 4px;
-      }
-      .timeline-org {
-        color: var(--text-muted);
-        font-weight: 500;
-        margin-bottom: 12px;
-      }
-
-      /* Contact Section */
-      .contact-box {
-        background: linear-gradient(
-          135deg,
-          rgba(139, 92, 246, 0.1),
-          rgba(6, 182, 212, 0.1)
-        );
-        border: 1px solid var(--border);
-        border-radius: 24px;
-        padding: 60px;
-        text-align: center;
-      }
-
-      .contact-box h2 {
-        margin-bottom: 16px;
-      }
-      .contact-box p {
-        max-width: 500px;
-        margin: 0 auto 32px;
-        font-size: 1.1rem;
-      }
-
-      footer {
-        padding: 40px 0;
-        text-align: center;
-        color: var(--text-muted);
-        font-size: 0.9rem;
-        border-top: 1px solid var(--border);
-        margin-top: 80px;
-      }
-
-      /* Responsive */
-      @media (max-width: 768px) {
-        .hero {
-          grid-template-columns: 1fr;
-          text-align: center;
-          gap: 40px;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
-        .hero-actions {
-          justify-content: center;
+
+        html {
+            scroll-behavior: smooth;
         }
-        .hero-content .lead {
-          margin: 0 auto 32px;
+
+        body {
+            font-family: "Inter", sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 15% 50%,
+                    rgba(139, 92, 246, 0.08),
+                    transparent 25%),
+                radial-gradient(circle at 85% 30%,
+                    rgba(6, 182, 212, 0.08),
+                    transparent 25%);
         }
+
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Outfit", sans-serif;
+            color: #fff;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        /* Utilities */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(139, 92, 246, 0.5);
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--header-height);
+            z-index: 1000;
+            background: rgba(3, 7, 18, 0.7);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        header .container {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: "Outfit", sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
         nav {
-          display: none;
-        } /* Mobile menu could be added here */
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: calc(var(--header-height) + 60px);
+            padding-bottom: 80px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            margin-bottom: 24px;
+        }
+
+        .hero-content .lead {
+            font-size: 1.15rem;
+            margin-bottom: 32px;
+            max-width: 600px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--glass);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            transition: all 0.2s;
+        }
+
+        .social-icon:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .social-btn {
+            height: 44px;
+            padding: 0 20px;
+            border-radius: 12px;
+            background: var(--glass);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.2s;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .social-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-image::before {
+            content: "";
+            position: absolute;
+            inset: -20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 32px;
+            opacity: 0.2;
+            filter: blur(40px);
+            z-index: 0;
+        }
+
+        /* Stats Grid */
+        .about-container {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        @media (max-width: 968px) {
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        .stats-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 24px;
+            border-radius: var(--radius);
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-icon {
+            padding: 10px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--secondary);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .skill-category {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+            box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.2);
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+        }
+
+        .skill-category h3 {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.1rem;
+            color: white;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            padding: 8px 16px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .tag:hover {
+            background: rgba(6, 182, 212, 0.15);
+            color: var(--secondary);
+            border-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(6, 182, 212, 0.2);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 32px;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(139, 92, 246, 0.3);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .folder-icon {
+            color: var(--primary);
+            width: 40px;
+            height: 40px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .project-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+        }
+
+        .project-links a:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: white;
+        }
+
+        .project-desc {
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-family: "SF Mono", "Fira Code", monospace;
+        }
+
+        .project-tech span {
+            padding: 4px 10px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.2s ease;
+            cursor: default;
+        }
+
+        .project-tech span:hover {
+            background: rgba(139, 92, 246, 0.15);
+            color: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
+            transform: translateY(-1px);
+        }
+
+        /* Experience Section */
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
         .timeline::before {
-          left: 20px;
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
         }
+
         .timeline-item {
-          padding-left: 50px;
+            padding-left: 32px;
+            position: relative;
+            margin-bottom: 48px;
         }
+
         .timeline-item::after {
-          left: 14px;
+            content: "";
+            position: absolute;
+            left: -6px;
+            top: 6px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--bg-dark);
+            border: 2px solid var(--primary);
         }
-      }
 
-      /* Affiliations Section */
-      .affiliations-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 24px;
-      }
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
 
-      .affiliation-card {
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        padding: 24px;
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-      }
+        .timeline-content h3 {
+            margin-bottom: 4px;
+        }
 
-      .affiliation-card:hover {
-        transform: translateY(-5px);
-        border-color: var(--secondary);
-        box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.3);
-      }
+        .timeline-org {
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
 
-      .affiliation-header {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-      }
+        /* Contact Section */
+        .contact-box {
+            background: linear-gradient(135deg,
+                    rgba(139, 92, 246, 0.1),
+                    rgba(6, 182, 212, 0.1));
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 60px;
+            text-align: center;
+        }
 
-      .affiliation-icon {
-        width: 48px;
-        height: 48px;
-        border-radius: 12px;
-        background: rgba(6, 182, 212, 0.1);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--secondary);
-        flex-shrink: 0;
-      }
+        .contact-box h2 {
+            margin-bottom: 16px;
+        }
 
-      .affiliation-info h3 {
-        font-size: 1.1rem;
-        margin-bottom: 4px;
-        color: white;
-      }
+        .contact-box p {
+            max-width: 500px;
+            margin: 0 auto 32px;
+            font-size: 1.1rem;
+        }
 
-      .affiliation-org {
-        color: var(--primary);
-        font-size: 0.9rem;
-        font-weight: 500;
-      }
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            margin-top: 80px;
+        }
 
-      .affiliation-desc {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        flex-grow: 1;
-      }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
 
-      .affiliation-footer {
-        margin-top: auto;
-        padding-top: 16px;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 0.85rem;
-        color: var(--secondary);
-        font-weight: 600;
-      }
-      
-      .badge {
-        padding: 4px 10px;
-        border-radius: 20px;
-        font-size: 0.75rem;
-        font-weight: 600;
-        background: rgba(255, 255, 255, 0.1);
-        color: white;
-      }
+            .hero-actions {
+                justify-content: center;
+            }
 
+            .hero-content .lead {
+                margin: 0 auto 32px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            /* Mobile menu could be added here */
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                padding-left: 50px;
+            }
+
+            .timeline-item::after {
+                left: 14px;
+            }
+        }
+
+        /* Affiliations Section */
+        .affiliations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .affiliation-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .affiliation-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+            box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.3);
+        }
+
+        .affiliation-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .affiliation-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(6, 182, 212, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            flex-shrink: 0;
+        }
+
+        .affiliation-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+            color: white;
+        }
+
+        .affiliation-org {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .affiliation-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            flex-grow: 1;
+        }
+
+        .affiliation-footer {
+            margin-top: auto;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .badge {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
     </style>
-  </head>
+</head>
 
-  <body>
+<body>
     <header>
-      <div class="container">
-        <div class="logo">
-          <div class="logo-icon">S</div>
-          <span>Supratik</span>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">S</div>
+                <span>Supratik</span>
+            </div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#education">Education</a>
+                <a href="#experience">Experience</a>
+                <a href="#affiliations">Memberships</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
         </div>
-        <nav>
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#education">Education</a>
-          <a href="#experience">Experience</a>
-          <a href="#affiliations">Memberships</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
     </header>
 
     <main>
-      <!-- Hero Section -->
-      <section class="hero container">
-        <div class="hero-content">
-          <div
-            style="
+        <!-- Hero Section -->
+        <section class="hero container">
+            <div class="hero-content">
+                <div style="
               color: var(--secondary);
               font-weight: 600;
               margin-bottom: 16px;
               letter-spacing: 1px;
-            "
-          >
-            HI THERE, I'M
-          </div>
-          <h1>Supratik <span class="text-gradient">Bhowal</span></h1>
-          <p class="lead">
-            Undergraduate CS Sophomore specializing in <strong>AI & ML</strong>.
-            I build intelligent models, contribute to open-source, and explore
-            the frontiers of Deep Learning.
-          </p>
-          <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary">View Projects</a>
-            <a href="#contact" class="btn btn-outline">Contact Me</a>
-          </div>
-          <div class="social-links">
-            <a
-              href="https://github.com/SupratikB23"
-              target="_blank"
-              class="social-icon"
-              title="GitHub"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-                ></path>
-              </svg>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/supratikbhowal"
-              target="_blank"
-              class="social-icon"
-              title="LinkedIn"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
-                ></path>
-                <rect x="2" y="9" width="4" height="12"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
-              </svg>
-            </a>
-            <a
-              href="mailto:supratikbhowal23@gmail.com"
-              class="social-icon"
-              title="Email"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                ></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-            </a>
-            <a
-              href="https://www.kaggle.com/supratikbhowal"
-              target="_blank"
-              class="social-icon"
-              title="Kaggle"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                stroke="none"
-              >
-                <path
-                  d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.375v5.215c0 .211-.117.316-.351.316H4.86c-.235 0-.352-.105-.352-.316V.316c0-.211.117-.316.352-.316h3.075c.234 0 .351.105.351.316v15.826l6.596-7.62c.164-.188.328-.281.492-.281h3.42c.187 0 .293.094.316.281.023.117-.023.211-.14.281l-5.835 6.647 6.55 7.823c.117.141.164.258.14.386z"
-                />
-              </svg>
-            </a>
-            <a
-              href="https://github.com/SupratikB23/SupratikB23.github.io/blob/main/pics/Resume.jpg"
-              target="_blank"
-              class="social-btn"
-              title="Resume/CV"
-            >
-              Resume/CV
-            </a>
-          </div>
-        </div>
-        <div class="hero-image">
-          <img
-            src="https://raw.githubusercontent.com/SupratikB23/SupratikB23.github.io/main/pics/SelfPicture2.jpeg"
-            alt="Supratik Bhowal"
-          />
-        </div>
-      </section>
-
-      <!-- About & Stats -->
-      <!-- About & Stats -->
-      <section id="about" class="section-padding container">
-        <h2 class="text-center" style="margin-bottom: 60px;">About <span class="text-gradient">Me</span></h2>
-        
-        <div class="about-container">
-            <div style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8;">
-                <p style="margin-bottom: 20px;">
-                    I'm a Computer Science undergrad at the <strong style="color: white;">Institute of Engineering and Management, Kolkata</strong>, with a deep focus on AI & ML. I love building intelligent systems and diving into deep learning models that actually make a difference.
+            ">
+                    HI THERE, I'M
+                </div>
+                <h1>Supratik <span class="text-gradient">Bhowal</span></h1>
+                <p class="lead">
+                    Undergraduate CS Sophomore specializing in <strong>AI & ML</strong>.
+                    I build intelligent models, contribute to open-source, and explore
+                    the frontiers of Deep Learning.
                 </p>
-                <p style="margin-bottom: 20px;">
-                    My journey in AI started with simple curiosity but quickly grew into a passion for solving real-world problems. Presently learning <strong style="color: white;">Advanced DL Frameworks</strong>, <strong style="color: white;">LLMs Architecture</strong> & <strong style="color: white;">RL Applications</strong>. 
-                </p>
-                <p>
-                    Outside of research and code, I'm usually contributing to <strong style="color: white;">open-source</strong>, hacking away at a weekend hackathon, or just geeking out over the latest AI papers.
-                </p>
-            </div>
-
-            <div class="stats-grid">
-              <div class="stat-card">
-                <div class="stat-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
                 </div>
-                <div>
-                  <h3>AI Research</h3>
-                  <p style="margin: 0; font-size: 0.9rem">
-                    Currently working on a review paper for Scientific ML, building a new RL project, and exploring Human-Computer Interaction.
-                  </p>
+                <div class="social-links">
+                    <a href="https://github.com/SupratikB23" target="_blank" class="social-icon" title="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/supratikbhowal" target="_blank" class="social-icon" title="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
+                    <a href="mailto:supratikbhowal23@gmail.com" class="social-icon" title="Email">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </a>
+                    <a href="https://www.kaggle.com/supratikbhowal" target="_blank" class="social-icon" title="Kaggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                            <path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.375v5.215c0 .211-.117.316-.351.316H4.86c-.235 0-.352-.105-.352-.316V.316c0-.211.117-.316.352-.316h3.075c.234 0 .351.105.351.316v15.826l6.596-7.62c.164-.188.328-.281.492-.281h3.42c.187 0 .293.094.316.281.023.117-.023.211-.14.281l-5.835 6.647 6.55 7.823c.117.141.164.258.14.386z" />
+                        </svg>
+                    </a>
+                    <a href="https://github.com/SupratikB23/SupratikB23.github.io/blob/main/pics/Resume.jpg" target="_blank" class="social-btn" title="Resume/CV">
+                        Resume/CV
+                    </a>
                 </div>
-              </div>
-              
-              <div class="stat-card">
-                <div class="stat-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            </div>
+            <div class="hero-image">
+                <img src="https://raw.githubusercontent.com/SupratikB23/SupratikB23.github.io/main/pics/SelfPicture2.jpeg" alt="Supratik Bhowal" />
+            </div>
+        </section>
+
+        <!-- About & Stats -->
+        <!-- About & Stats -->
+        <section id="about" class="section-padding container">
+            <h2 class="text-center" style="margin-bottom: 60px;">About <span class="text-gradient">Me</span></h2>
+
+            <div class="about-container">
+                <div style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8;">
+                    <p style="margin-bottom: 20px;">
+                        I'm a Computer Science undergrad at the <strong style="color: white;">Institute of Engineering and Management, Kolkata</strong>, with a deep focus on AI & ML. I love building intelligent systems and diving into deep learning models that actually make a difference.
+                    </p>
+                    <p style="margin-bottom: 20px;">
+                        My journey in AI started with simple curiosity but quickly grew into a passion for solving real-world problems. Presently learning <strong style="color: white;">Advanced DL Frameworks</strong>, <strong style="color: white;">LLMs Architecture</strong> & <strong style="color: white;">RL Applications</strong>.
+                    </p>
+                    <p>
+                        Outside of research and code, I'm usually contributing to <strong style="color: white;">open-source</strong>, hacking away at a weekend hackathon, or just geeking out over the latest AI papers.
+                    </p>
                 </div>
-                <div>
-                  <h3>Open Source</h3>
-                  <p style="margin: 0; font-size: 0.9rem">
-                    I'm an active contributor to various open-source communities—sharing knowledge and building tools for the dev ecosystem.
-                  </p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="16" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>AI Research</h3>
+                            <p style="margin: 0; font-size: 0.9rem">
+                                Currently working on a review paper for Scientific ML, building a new RL project, and exploring Human-Computer Interaction.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>Open Source</h3>
+                            <p style="margin: 0; font-size: 0.9rem">
+                                I'm an active contributor to various open-source communities—sharing knowledge and building tools for the dev ecosystem.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>Innovation</h3>
+                            <p style="margin: 0; font-size: 0.9rem">
+                                Driven to create tech that actually helps people. I believe in using intelligent solutions to make a positive impact.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              
-              <div class="stat-card">
-                <div class="stat-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section-padding container">
+            <h2>Technical <span class="text-gradient">Skills</span></h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                        Programming Languages
+                    </h3>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Objective-C</span>
+                        <span class="tag">C++</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">MATLAB</span>
+                        <span class="tag">HTML</span>
+                    </div>
                 </div>
-                <div>
-                  <h3>Innovation</h3>
-                  <p style="margin: 0; font-size: 0.9rem">
-                    Driven to create tech that actually helps people. I believe in using intelligent solutions to make a positive impact.
-                  </p>
+
+                <div class="skill-category">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#35dea0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        </svg>
+                        Frameworks & Libraries
+                    </h3>
+                    <div class="tags">
+                        <span class="tag">Pandas</span>
+                        <span class="tag">NumPy</span>
+                        <span class="tag">Matplotlib</span>
+                        <span class="tag">Seaborn</span>
+                        <span class="tag">Scikit-Learn</span>
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag">PyTorch</span>
+                        <span class="tag">Keras</span>
+                    </div>
                 </div>
-              </div>
-            </div>
-        </div>
-      </section>
 
-      <!-- Skills Section -->
-      <section id="skills" class="section-padding container">
-        <h2>Technical <span class="text-gradient">Skills</span></h2>
-        <div class="skills-grid">
-          <div class="skill-category">
-            <h3>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#22d3ee"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <polyline points="16 18 22 12 16 6"></polyline>
-                <polyline points="8 6 2 12 8 18"></polyline>
-              </svg>
-              Programming Languages
-            </h3>
-            <div class="tags">
-              <span class="tag">Python</span>
-              <span class="tag">Objective-C</span>
-              <span class="tag">C++</span>
-              <span class="tag">SQL</span>
-              <span class="tag">MATLAB</span>
-              <span class="tag">HTML</span>
-            </div>
-          </div>
+                <div class="skill-category">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                        Technologies
+                    </h3>
+                    <div class="tags">
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Deep Learning</span>
+                        <span class="tag">Git</span>
+                        <span class="tag">Weights & Biases</span>
+                        <span class="tag">Feature Engineering</span>
+                        <span class="tag">Kaggle</span>
+                        <span class="tag">Hugging Face</span>
+                    </div>
+                </div>
 
-          <div class="skill-category">
-            <h3>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#35dea0"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
-                ></path>
-              </svg>
-              Frameworks & Libraries
-            </h3>
-            <div class="tags">
-              <span class="tag">Pandas</span>
-              <span class="tag">NumPy</span>
-              <span class="tag">Matplotlib</span>
-              <span class="tag">Seaborn</span>
-              <span class="tag">Scikit-Learn</span>
-              <span class="tag">TensorFlow</span>
-              <span class="tag">PyTorch</span>
-              <span class="tag">Keras</span>
+                <div class="skill-category" style="grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+                    <h3 style="margin: 0; white-space: nowrap;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                        Data Structures & Algorithms
+                    </h3>
+                    <div style="color:var(--text-muted); font-size:0.95rem; text-align: center; flex: 1; min-width: 250px;">
+                        Track my DSA journey and problem-solving skills on LeetCode.
+                    </div>
+                    <a href="https://leetcode.com/u/Supratik23//" target="_blank" class="btn btn-primary" style="padding: 8px 20px; margin: 0;">View LeetCode</a>
+                </div>
             </div>
-          </div>
+        </section>
 
-          <div class="skill-category">
-            <h3>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#8b5cf6"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="2" y1="12" x2="22" y2="12"></line>
-                <path
-                  d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
-                ></path>
-              </svg>
-              Technologies
-            </h3>
-            <div class="tags">
-              <span class="tag">Machine Learning</span>
-              <span class="tag">Deep Learning</span>
-              <span class="tag">Git</span>
-              <span class="tag">Weights & Biases</span>
-              <span class="tag">Feature Engineering</span>
-              <span class="tag">Kaggle</span>
-              <span class="tag">Hugging Face</span>
+        <!-- Education Section -->
+        <section id="education" class="section-padding container">
+            <h2>Education & <span class="text-gradient">Learning</span></h2>
+            <div class="timeline">
+
+                <!-- College -->
+                <div class="timeline-item">
+                    <span class="timeline-date">2024 – Present</span>
+                    <div class="timeline-content">
+                        <h3>B.Tech Computer Science (AI & ML)</h3>
+                        <div class="timeline-org"><span style="color: var(--primary); font-weight: 600;">Institute of Engineering and Management (IEM), Kolkata</span></div>
+                        <p style="color: rgb(255, 255, 255); font-weight: 500; font-family: 'SF Mono', monospace; font-size: 1rem;">YGPA: 9.11 (1st yr)</p>
+                        <p>Relevant Courses: Machine Learning, DSA, DAA, C Programming</p>
+                    </div>
+                </div>
+
+                <!-- High School -->
+                <div class="timeline-item">
+                    <span class="timeline-date">2010 – 2024</span>
+                    <div class="timeline-content">
+                        <h3>PCM with Computer Science</h3>
+                        <div class="timeline-org"><span style="color: var(--primary); font-weight: 600;">South Point High School (SPHS), Kolkata</span></div>
+                        <p style="color: white; font-weight: 500; font-family: 'SF Mono', monospace; font-size: 1rem;">90% (12th), 95% (10th) </p>
+                        <p>Relevant Courses: Python Programming, MySQL, HTML, Computer Networks</p>
+                    </div>
+                </div>
+
             </div>
-          </div>
+        </section>
 
-          <div class="skill-category" style="grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
-            <h3 style="margin: 0; white-space: nowrap;">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#f59e0b"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-              </svg>
-              Data Structures & Algorithms
-            </h3>
-            <div style="color:var(--text-muted); font-size:0.95rem; text-align: center; flex: 1; min-width: 250px;">
-                Track my DSA journey and problem-solving skills on LeetCode.
+        <!-- Experience Section -->
+        <section id="experience" class="section-padding container">
+            <h2>Professional <span class="text-gradient">Experience</span></h2>
+            <div class="timeline">
+
+                <!-- AI Intern -->
+                <div class="timeline-item">
+                    <span class="timeline-date">Jan 2026 – Present</span>
+                    <div class="timeline-content">
+                        <h3>AI Intern</h3>
+                        <div class="timeline-org"><span style="color: var(--primary); font-weight: 600;">Media Nirvana</span> • <span style="color: rgb(254, 254, 228);">Remote</span></div>
+                        <p>Develop AI workflows and integrate AI-driven features into startup products and services, including CRM systems and WhatsApp bots.</p>
+                    </div>
+                </div>
+
+                <!-- HCI Research Intern -->
+                <div class="timeline-item">
+                    <span class="timeline-date">July 2025 – Present</span>
+                    <div class="timeline-content">
+                        <h3>HCI Research Intern</h3>
+                        <div class="timeline-org"><span style="color: var(--primary); font-weight: 600;">IEM with IIT Mandi Chapter</span> • <span style="color: rgb(254, 254, 228);">Kolkata</span></div>
+                        <p>Conducting research in Human-Computer Interaction, focusing on innovative interfaces and user experience design.</p>
+                    </div>
+                </div>
+
+                <!-- IEEE EMBS Student Intern -->
+                <div class="timeline-item">
+                    <span class="timeline-date">June – July 2025</span>
+                    <div class="timeline-content">
+                        <h3>IEEE EMBS Student Intern</h3>
+                        <div class="timeline-org"><span style="color: var(--primary); font-weight: 600;">IEEE Engineering Medicine and Biology Society</span> • <span style="color: rgb(254, 254, 228);">Pune</span></div>
+                        <p>Developed Deep Learning models for Epileptic Seizure Detection and Prediction (CNN-BiLSTM, Autoencoder, Attention MLP) under mentorship of Prof. Sneha Deshmukh.</p>
+                    </div>
+                </div>
+
+                <!-- Open Source Contributor -->
+                <div class="timeline-item">
+                    <span class="timeline-date">Jan – Mar 2025</span>
+                    <div class="timeline-content">
+                        <h3>Open Source Contributor</h3>
+                        <div class="timeline-org"><span style="color: var(--primary); font-weight: 600;">Social Winter of Code (SWOC)</span> • <span style="color: rgb(254, 254, 228);">Remote</span></div>
+                        <p>Actively contributed to open-source and resolved issues and solved front-end & back-end issues.</p>
+                    </div>
+                </div>
+
             </div>
-            <a href="https://leetcode.com/u/Supratik23//" target="_blank" class="btn btn-primary" style="padding: 8px 20px; margin: 0;">View LeetCode</a>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- Education Section -->
-      <section id="education" class="section-padding container">
-        <h2>Education & <span class="text-gradient">Learning</span></h2>
-        <div class="timeline">
-          
-          <!-- College -->
-          <div class="timeline-item">
-            <span class="timeline-date">2024 – Present</span>
-            <div class="timeline-content">
-              <h3>B.Tech Computer Science (AI & ML)</h3>
-              <div class="timeline-org"><span style="color: var(--primary); font-weight: 600;">Institute of Engineering and Management (IEM), Kolkata</span></div>
-              <p style="color: rgb(255, 255, 255); font-weight: 500; font-family: 'SF Mono', monospace; font-size: 1rem;">YGPA: 9.11 (1st yr)</p> 
-              <p>Relevant Courses: Machine Learning, DSA, DAA, C Programming</p>
+        <!-- Affiliations & Memberships Section -->
+        <section id="affiliations" class="section-padding container">
+            <h2>Affiliations & <span class="text-gradient">Memberships</span></h2>
+            <div class="affiliations-grid">
+
+                <!-- GDG Student Member -->
+                <div class="affiliation-card">
+                    <div class="affiliation-header">
+                        <div class="affiliation-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <div class="affiliation-info">
+                            <h3>GDG Student Member</h3>
+                            <div class="affiliation-org">Google Developer Groups on Campus, IEM</div>
+                        </div>
+                    </div>
+                    <p class="affiliation-desc">
+                        Participating in Google Developer Groups activities, contributing to tech events, workshops, and community projects at IEM.
+                    </p>
+                    <div class="affiliation-footer">
+                        <span>Sept 2025 – Present</span>
+                    </div>
+                </div>
+
+                <!-- S4DS Student Member -->
+                <div class="affiliation-card">
+                    <div class="affiliation-header">
+                        <div class="affiliation-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                <polyline points="2 17 12 22 22 17"></polyline>
+                                <polyline points="2 12 12 17 22 12"></polyline>
+                            </svg>
+                        </div>
+                        <div class="affiliation-info">
+                            <h3>Technical Lead</h3>
+                            <div class="affiliation-org">Society for Data Science (S4DS)</div>
+                        </div>
+                    </div>
+                    <p class="affiliation-desc">
+                        Spearheading technical operations, managing data science events, and evaluating projects for the IEM Student Chapter.
+                    </p>
+                    <div class="affiliation-footer">
+                        <span>Sept 2024 – Present</span>
+                        <span class="badge" style="background: #f59e0b;">Leadership</span>
+                    </div>
+                </div>
+
+                <!-- IEEE Team Member -->
+                <div class="affiliation-card">
+                    <div class="affiliation-header">
+                        <div class="affiliation-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                            </svg>
+                        </div>
+                        <div class="affiliation-info">
+                            <h3>AI/ML Team Member</h3>
+                            <div class="affiliation-org">IEEE Computer Society, IEM Chapter</div>
+                        </div>
+                    </div>
+                    <p class="affiliation-desc">
+                        Actively participating in IEEE events, hackathons, and research collaborations to contribute to global technical advancements.
+                    </p>
+                    <div class="affiliation-footer">
+                        <span>Aug 2024 – Present</span>
+                    </div>
+                </div>
+
             </div>
-          </div>
+        </section>
 
-          <!-- High School -->
-          <div class="timeline-item">
-            <span class="timeline-date">2010 – 2024</span>
-            <div class="timeline-content">
-              <h3>PCM with Computer Science</h3>
-              <div class="timeline-org"><span style="color: var(--primary); font-weight: 600;">South Point High School (SPHS), Kolkata</span></div>
-              <p style="color: white; font-weight: 500; font-family: 'SF Mono', monospace; font-size: 1rem;">90% (12th), 95% (10th) </p> 
-              <p>Relevant Courses: Python Programming, MySQL, HTML, Computer Networks</p>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- Experience Section -->
-      <section id="experience" class="section-padding container">
-        <h2>Professional <span class="text-gradient">Experience</span></h2>
-        <div class="timeline">
-
-          <!-- AI Intern -->
-          <div class="timeline-item">
-            <span class="timeline-date">Jan 2026 – Present</span>
-            <div class="timeline-content">
-              <h3>AI Intern</h3>
-              <div class="timeline-org"><span style="color: var(--primary); font-weight: 600;">Media Nirvana</span> • <span style="color: rgb(254, 254, 228);">Remote</span></div>
-              <p>Develop AI workflows and integrate AI-driven features into startup products and services, including CRM systems and WhatsApp bots.</p>
-            </div>
-          </div>
-          
-          <!-- HCI Research Intern -->
-          <div class="timeline-item">
-            <span class="timeline-date">July 2025 – Present</span>
-            <div class="timeline-content">
-              <h3>HCI Research Intern</h3>
-              <div class="timeline-org"><span style="color: var(--primary); font-weight: 600;">IEM with IIT Mandi Chapter</span> • <span style="color: rgb(254, 254, 228);">Kolkata</span></div>
-              <p>Conducting research in Human-Computer Interaction, focusing on innovative interfaces and user experience design.</p>
-            </div>
-          </div>
-
-          <!-- IEEE EMBS Student Intern -->
-          <div class="timeline-item">
-            <span class="timeline-date">June – July 2025</span>
-            <div class="timeline-content">
-              <h3>IEEE EMBS Student Intern</h3>
-              <div class="timeline-org"><span style="color: var(--primary); font-weight: 600;">IEEE Engineering Medicine and Biology Society</span> • <span style="color: rgb(254, 254, 228);">Pune</span></div>
-              <p>Developed Deep Learning models for Epileptic Seizure Detection and Prediction (CNN-BiLSTM, Autoencoder, Attention MLP) under mentorship of Prof. Sneha Deshmukh.</p>
-            </div>
-          </div>
-
-          <!-- Open Source Contributor -->
-          <div class="timeline-item">
-            <span class="timeline-date">Jan – Mar 2025</span>
-            <div class="timeline-content">
-              <h3>Open Source Contributor</h3>
-              <div class="timeline-org"><span style="color: var(--primary); font-weight: 600;">Social Winter of Code (SWOC)</span> • <span style="color: rgb(254, 254, 228);">Remote</span></div>
-              <p>Actively contributed to open-source and resolved issues and solved front-end & back-end issues.</p>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- Affiliations & Memberships Section -->
-      <section id="affiliations" class="section-padding container">
-        <h2>Affiliations & <span class="text-gradient">Memberships</span></h2>
-        <div class="affiliations-grid">
-          
-          <!-- GDG Student Member -->
-          <div class="affiliation-card">
-            <div class="affiliation-header">
-              <div class="affiliation-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-              </div>
-              <div class="affiliation-info">
-                <h3>GDG Student Member</h3>
-                <div class="affiliation-org">Google Developer Groups on Campus, IEM</div>
-              </div>
-            </div>
-            <p class="affiliation-desc">
-              Participating in Google Developer Groups activities, contributing to tech events, workshops, and community projects at IEM.
-            </p>
-            <div class="affiliation-footer">
-              <span>Sept 2025 – Present</span>
-            </div>
-          </div>
-
-          <!-- S4DS Student Member -->
-          <div class="affiliation-card">
-            <div class="affiliation-header">
-              <div class="affiliation-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-              </div>
-              <div class="affiliation-info">
-                <h3>Technical Lead</h3>
-                <div class="affiliation-org">Society for Data Science (S4DS)</div>
-              </div>
-            </div>
-            <p class="affiliation-desc">
-              Spearheading technical operations, managing data science events, and evaluating projects for the IEM Student Chapter.
-            </p>
-            <div class="affiliation-footer">
-              <span>Sept 2024 – Present</span>
-              <span class="badge" style="background: #f59e0b;">Leadership</span>
-            </div>
-          </div>
-
-          <!-- IEEE Team Member -->
-          <div class="affiliation-card">
-            <div class="affiliation-header">
-              <div class="affiliation-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-              </div>
-              <div class="affiliation-info">
-                <h3>AI/ML Team Member</h3>
-                <div class="affiliation-org">IEEE Computer Society, IEM Chapter</div>
-              </div>
-            </div>
-            <p class="affiliation-desc">
-              Actively participating in IEEE events, hackathons, and research collaborations to contribute to global technical advancements.
-            </p>
-            <div class="affiliation-footer">
-              <span>Aug 2024 – Present</span>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- Projects Section -->
-      <section id="projects" class="section-padding container">
-        <div
-          style="
+        <!-- Projects Section -->
+        <section id="projects" class="section-padding container">
+            <div style="
             display: flex;
             justify-content: space-between;
             align-items: end;
             margin-bottom: 40px;
-          "
-        >
-          <h2>Featured <span class="text-gradient">Projects</span></h2>
-          <a
-            href="https://github.com/stars/SupratikB23/lists/personal-projects"
-            class="btn btn-outline"
-            style="padding: 8px 16px; font-size: 0.9rem"
-            >View All</a
-          >
-        </div>
+          ">
+                <h2>Featured <span class="text-gradient">Projects</span></h2>
+                <a href="https://github.com/stars/SupratikB23/lists/personal-projects" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.9rem">View All</a>
+            </div>
 
-        <div class="projects-grid">
-          <!-- Project 1 -->
-          <div class="project-card">
-            <div class="project-header">
-              <svg class="folder-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
-              <div class="project-links">
-                <a href="https://github.com/SupratikB23/Epilepsy-Prediction-and-Detection" title="GitHub Repo"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
-              </div>
-            </div>
-            <h3 class="project-title">Epilepsy Prediction & Detection</h3>
-            <p class="project-desc">
-              DL algorithms for real-time Seizure Detection/Prediction on EEG signals. CNN-BiLSTM achieved 98% prediction accuracy, while the Transformer model showed 89% detection accuracy.
-            </p>
-            <div class="project-tech">
-              <span>Python</span>
-              <span>Scikit-learn</span>
-              <span>TensorFlow</span>
-              <span>Scipy</span>
-              <span>Keras</span>
-            </div>
-          </div>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <svg class="folder-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                        <div class="project-links">
+                            <a href="https://github.com/SupratikB23/Epilepsy-Prediction-and-Detection" title="GitHub Repo"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                </svg></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Epilepsy Prediction & Detection</h3>
+                    <p class="project-desc">
+                        DL algorithms for real-time Seizure Detection/Prediction on EEG signals. CNN-BiLSTM achieved 98% prediction accuracy, while the Transformer model showed 89% detection accuracy.
+                    </p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>Scikit-learn</span>
+                        <span>TensorFlow</span>
+                        <span>Scipy</span>
+                        <span>Keras</span>
+                    </div>
+                </div>
 
-          <!-- Project 2 -->
-          <div class="project-card">
-            <div class="project-header">
-              <svg class="folder-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
-              <div class="project-links">
-                <a href="https://github.com/SupratikB23/Poker-Hand-Prediction" title="GitHub Repo"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
-                <a href="https://www.kaggle.com/code/supratikbhowal/poker-hand-prediction-model" title="Kaggle"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
-              </div>
-            </div>
-            <h3 class="project-title">Poker Hand Prediction Model</h3>
-            <p class="project-desc">
-              Built ML & DL models that predict poker hand categories based on dealt cards. Combined multiple algorithms including Random Forest, SVM, and MLP Classifier into a Stacking Classifier for enhanced performance.
-            </p>
-            <div class="project-tech">
-              <span>Python</span>
-              <span>Scikit-learn</span>
-              <span>NumPy</span>
-              <span>Pandas</span>
-            </div>
-          </div>
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <svg class="folder-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                        <div class="project-links">
+                            <a href="https://github.com/SupratikB23/Agentic-HR-Operations-Assistant" title="GitHub Repo"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                </svg></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Agentic HR Operations Assistant</h3>
+                    <p class="project-desc">
+                        NLP-powered system that answers complex HR policy queries using RAG and executes HR actions from natural language.
+                    </p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>NLP</span>
+                        <span>RAG Chatbot</span>
+                        <span>FAISS Vector Database</span>
+                        <span>PyTorch</span>
+                    </div>
+                </div>
 
-          <!-- Project 3 -->
-          <div class="project-card">
-            <div class="project-header">
-              <svg class="folder-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
-              <div class="project-links">
-                <a href="https://github.com/SupratikB23/HarmonyRL" title="GitHub Repo"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
-              </div>
-            </div>
-            <h3 class="project-title">HarmonyRL</h3>
-            <p class="project-desc">
-              Deep Learning framework for generating symbolic music (MIDI) using Supervised Learning, Reinforcement Learning (RL), and Diffusion-based Postprocessing.
-            </p>
-            <div class="project-tech">
-              <span>Python</span>
-              <span>HuggingFace</span>
-              <span>PyTorch</span>
-              <span>Scipy</span>
-              <span>Librosa</span>
-            </div>
-          </div>
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <svg class="folder-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                        <div class="project-links">
+                            <a href="https://github.com/SupratikB23/HarmonyRL" title="GitHub Repo"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                </svg></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">HarmonyRL</h3>
+                    <p class="project-desc">
+                        Deep Learning framework for generating symbolic music (MIDI) using Supervised Learning, Reinforcement Learning (RL), and Diffusion-based Postprocessing.
+                    </p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>HuggingFace</span>
+                        <span>PyTorch</span>
+                        <span>Scipy</span>
+                        <span>Librosa</span>
+                    </div>
+                </div>
 
-          <!-- Project 4 -->
-          <div class="project-card">
-            <div class="project-header">
-              <svg class="folder-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
-              <div class="project-links">
-                <a href="https://github.com/SupratikB23/Neural-Network-for-Multi-Class-Classification" title="GitHub Repo"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
-              </div>
-            </div>
-            <h3 class="project-title">ANN for Multi-Class Classification</h3>
-            <p class="project-desc">
-              Creating an ANN for Multi-Class Classification with Custom Ada-Act Function from scratch.
-            </p>
-            <div class="project-tech">
-              <span>Python</span>
-              <span>NumPy</span>
-              <span>Pandas</span>
-              <span>Math</span>
-            </div>
-          </div>
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <svg class="folder-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                        <div class="project-links">
+                            <a href="https://github.com/SupratikB23/Poker-Hand-Prediction" title="GitHub Repo"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                </svg></a>
+                            <a href="https://www.kaggle.com/code/supratikbhowal/poker-hand-prediction-model" title="Kaggle"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Poker Hand Prediction Model</h3>
+                    <p class="project-desc">
+                        Built ML & DL models that predict poker hand categories based on dealt cards. Combined multiple algorithms including Random Forest, SVM, and MLP Classifier into a Stacking Classifier for enhanced performance. (Open Source)
+                    </p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>Scikit-learn</span>
+                        <span>NumPy</span>
+                        <span>Pandas</span>
+                    </div>
+                </div>
 
-          <!-- Project 5 -->
-          <div class="project-card">
-            <div class="project-header">
-              <svg class="folder-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
-              <div class="project-links">
-                <a href="https://github.com/SupratikB23/Sentiment-Analysis-and-Recommendation-System-for-App-Review-Data" title="GitHub Repo"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
-                <a href="https://www.kaggle.com/code/supratikbhowal/sentiment-classifier-for-app-data" title="Kaggle"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
-              </div>
-            </div>
-            <h3 class="project-title">Sentiment Analysis & Recommendation</h3>
-            <p class="project-desc">
-              Sentiment Classifier to analyze and predict the sentiment of user reviews collected from 1 million Google Play Store entries.
-            </p>
-            <div class="project-tech">
-              <span>Python</span>
-              <span>Scikit-learn</span>
-              <span>Tensorflow</span>
-            </div>
-          </div>
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <svg class="folder-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                        <div class="project-links">
+                            <a href="https://github.com/SupratikB23/Sentiment-Analysis-and-Recommendation-System-for-App-Review-Data" title="GitHub Repo"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                </svg></a>
+                            <a href="https://www.kaggle.com/code/supratikbhowal/sentiment-classifier-for-app-data" title="Kaggle"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Sentiment Analysis & Recommendation</h3>
+                    <p class="project-desc">
+                        Sentiment Classifier to analyze and predict the sentiment of user reviews collected from 1 million Google Play Store entries.
+                    </p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>Scikit-learn</span>
+                        <span>Tensorflow</span>
+                    </div>
+                </div>
 
-          <!-- Project 6 -->
-          <div class="project-card">
-            <div class="project-header">
-              <svg class="folder-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
-              <div class="project-links">
-                <a href="https://github.com/SupratikB23/Arabic-Dates-Classification" title="GitHub Repo"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
-                <a href="https://www.kaggle.com/code/supratikbhowal/arabic-dates-classification-resnet50" title="Kaggle"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
-              </div>
-            </div>
-            <h3 class="project-title">Arabic Dates Classification</h3>
-            <p class="project-desc">
-              A deep learning model using ResNet50 to classify and recognize different Arabic date varieties with high accuracy. (Open Source)
-            </p>
-            <div class="project-tech">
-              <span>Python</span>
-              <span>PyTorch</span>
-              <span>ResNet50</span>
-            </div>
-          </div>
-        </div>
-      </section>
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <svg class="folder-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                        <div class="project-links">
+                            <a href="https://github.com/SupratikB23/Arabic-Dates-Classification" title="GitHub Repo"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                </svg></a>
+                            <a href="https://www.kaggle.com/code/supratikbhowal/arabic-dates-classification-resnet50" title="Kaggle"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Arabic Dates Classification</h3>
+                    <p class="project-desc">
+                        A deep learning model using ResNet50 to classify and recognize different Arabic date varieties with high accuracy. (Open Source)
+                    </p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>PyTorch</span>
+                        <span>ResNet50</span>
+                    </div>
+                </div>
 
-      <!-- Contact Section -->
-      <section id="contact" class="section-padding container">
-        <div class="contact-box">
-          <h2>
-            Let's Build Something <span class="text-gradient">Amazing</span>
-          </h2>
-          <p>
-            I'm always open to discussing new projects, creative ideas, or
-            opportunities to be part of your visions.
-          </p>
-          <a href="mailto:supratikbhowal23@gmail.com" class="btn btn-primary"
-            >Say Hello</a
-          >
-        </div>
-      </section>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-padding container">
+            <div class="contact-box">
+                <h2>
+                    Let's Build Something <span class="text-gradient">Amazing</span>
+                </h2>
+                <p>
+                    I'm always open to discussing new projects, creative ideas, or
+                    opportunities to be part of your visions.
+                </p>
+                <a href="mailto:supratikbhowal23@gmail.com" class="btn btn-primary">Say Hello</a>
+            </div>
+        </section>
     </main>
 
     <footer>
-      <div class="container">
-        <p>© <span id="year"></span> Supratik Bhowal. Built with HTML & CSS.</p>
-      </div>
+        <div class="container">
+            <p>© <span id="year"></span> Supratik Bhowal. Built with HTML & CSS.</p>
+        </div>
     </footer>
 
     <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
+        document.getElementById("year").textContent = new Date().getFullYear();
     </script>
-  </body>
+</body>
+
 </html>
