@@ -42,24 +42,30 @@
         ::-webkit-scrollbar {
             width: 14px;
         }
+
         ::-webkit-scrollbar-track {
             background: #080808;
         }
+
         html.light-theme ::-webkit-scrollbar-track {
             background: #FAFAFA;
         }
+
         ::-webkit-scrollbar-thumb {
             background: #e5e5e5;
             border-radius: 7px;
             border: 3px solid #080808;
         }
+
         html.light-theme ::-webkit-scrollbar-thumb {
             background: #111111;
             border: 3px solid #FAFAFA;
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background: #ffffff;
         }
+
         html.light-theme ::-webkit-scrollbar-thumb:hover {
             background: #000000;
         }
@@ -1151,7 +1157,7 @@
             transform: rotate(-1.5deg) scale(1.02);
             margin: 0;
             z-index: 10;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .marquee-content {
@@ -1170,8 +1176,13 @@
         }
 
         @keyframes marquee {
-            0% { transform: translateX(0%); }
-            100% { transform: translateX(-50%); }
+            0% {
+                transform: translateX(0%);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
         /* ===== SCROLL PROGRESS ===== */
@@ -1184,6 +1195,29 @@
             width: 0%;
             z-index: 10000;
             pointer-events: none;
+        }
+
+        /* ===== HOVER IMAGE REVEAL ===== */
+        .project-preview-img {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 320px;
+            border-radius: 8px;
+            pointer-events: none;
+            opacity: 0;
+            transform: scale(0.9);
+            transform-origin: top left;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            z-index: 10000;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border);
+            object-fit: cover;
+        }
+
+        .project-preview-img.active {
+            opacity: 1;
+            transform: scale(1);
         }
     </style>
     <link id="gfont-Inter" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap">
@@ -1379,10 +1413,16 @@
             <h2>Professional Journey</h2>
             <div class="timeline">
                 <div class="timeline-item">
+                    <span class="timeline-date">Apr 2026 – Present</span>
+                    <h3><strong>AI Intern</strong></h3>
+                    <div class="timeline-org"><span class="txt-red">Asvix</span> · Remote</div>
+                    <p>Building intelligent, scalable, and user-centric AI products that solve real-world problems.</p>
+                </div>
+                <div class="timeline-item">
                     <span class="timeline-date">Jan 2026 – Present</span>
                     <h3><strong>AI Intern</strong></h3>
                     <div class="timeline-org"><span class="txt-blue">Media Nirvana</span> · Remote</div>
-                    <p>Develop AI workflows and integrate AI-driven features into startup products and services, including CRM systems and WhatsApp bots.</p>
+                    <p>Develop AI workflows and integrate AI-driven features into Startup products, tools and services, including CRM systems and WhatsApp bots and Website Management.</p>
                 </div>
                 <div class="timeline-item">
                     <span class="timeline-date">July 2025 – Present</span>
@@ -1503,37 +1543,31 @@
                 <!-- P4 -->
                 <div class="project-card">
                     <div class="project-header-row">
-                        <h3 class="project-title">Poker Hand Prediction</h3>
+                        <h3 class="project-title">AI Campaign Manager</h3>
                         <div class="project-links">
-                            <a href="https://github.com/SupratikB23/Poker-Hand-Prediction" target="_blank" class="link-underline"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <a href="https://github.com/SupratikB23/AI-Campaign-Manager" target="_blank" class="link-underline"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                                </svg></a>
-                            <a href="https://www.kaggle.com/code/supratikbhowal/poker-hand-prediction-model" target="_blank" class="link-underline"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none">
-                                    <path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.375v5.215c0 .211-.117.316-.351.316H4.86c-.235 0-.352-.105-.352-.316V.316c0-.211.117-.316.352-.316h3.075c.234 0 .351.105.351.316v15.826l6.596-7.62c.164-.188.328-.281.492-.281h3.42c.187 0 .293.094.316.281.023.117-.023.211-.14.281l-5.835 6.647 6.55 7.823c.117.141.164.258.14.386z"></path>
                                 </svg></a>
                         </div>
                     </div>
-                    <p class="project-desc">Built ML &amp; DL models that predict poker hand categories based on dealt cards. Combined multiple algorithms into a <strong>Stacking Classifier</strong> for enhanced performance.</p>
+                    <p class="project-desc">AI-powered platform that extracts <strong>Brand DNA</strong> directly from any Website and automatically generates perfectly aligned <strong>Static Ad Creatives.</strong>.</p>
                     <div class="project-tech">
-                        <span>Python</span><span>Scikit-learn</span><span>NumPy</span><span>Pandas</span>
+                        <span>Javascript</span><span>HuggingFace</span><span>Gemini Vision</span><span>Image Generation</span><span>React</span>
                     </div>
                 </div>
                 <!-- P5 -->
                 <div class="project-card">
                     <div class="project-header-row">
-                        <h3 class="project-title">Sentiment Analysis &amp; Recommendation</h3>
+                        <h3 class="project-title">BrandSCOPE</h3>
                         <div class="project-links">
-                            <a href="https://github.com/SupratikB23/Sentiment-Analysis-and-Recommendation-System-for-App-Review-Data" target="_blank" class="link-underline"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <a href="https://github.com/SupratikB23/BrandSCOPE" target="_blank" class="link-underline"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                                </svg></a>
-                            <a href="https://www.kaggle.com/code/supratikbhowal/sentiment-classifier-for-app-data" target="_blank" class="link-underline"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none">
-                                    <path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.375v5.215c0 .211-.117.316-.351.316H4.86c-.235 0-.352-.105-.352-.316V.316c0-.211.117-.316.352-.316h3.075c.234 0 .351.105.351.316v15.826l6.596-7.62c.164-.188.328-.281.492-.281h3.42c.187 0 .293.094.316.281.023.117-.023.211-.14.281l-5.835 6.647 6.55 7.823c.117.141.164.258.14.386z"></path>
                                 </svg></a>
                         </div>
                     </div>
-                    <p class="project-desc"><strong>Sentiment Classifier</strong> to analyze and predict the sentiment of user reviews collected from 1 million Google Play Store entries.</p>
+                    <p class="project-desc">4-engine content intelligence platform that scrapes <strong>Brand DNA</strong>, researches live trends & writes <strong>SEO/AEO/GEO</strong>-optimized articles in the brand's own voice.</p>
                     <div class="project-tech">
-                        <span>Python</span><span>Scikit-learn</span><span>TensorFlow</span>
+                        <span>Javascript</span><span>Python</span><span>Search Optimization </span><span>NLP</span>
                     </div>
                 </div>
                 <!-- P6 -->
@@ -1551,7 +1585,7 @@
                     </div>
                     <p class="project-desc">A deep learning model using <strong>ResNet50</strong> to classify and recognize different Arabic date varieties with high accuracy.</p>
                     <div class="project-tech">
-                        <span>Python</span><span>PyTorch</span><span>ResNet50</span>
+                        <span>Python</span><span>PyTorch</span><span>ResNet50</span><span>Kaggle</span>
                     </div>
                 </div>
             </div>
@@ -2258,7 +2292,11 @@ Object.assign(window, {
 
         // Apply to project cards
         document.querySelectorAll('.project-card').forEach(card => {
-            wrapWordsInElement(card);
+            const title = card.querySelector('.project-title');
+            const tech = card.querySelector('.project-tech');
+
+            if (title) wrapWordsInElement(title);
+            if (tech) wrapWordsInElement(tech);
 
             // Randomize hue on hover
             card.addEventListener('mouseenter', () => {
@@ -2266,7 +2304,11 @@ Object.assign(window, {
                 card.style.setProperty('--hover-hue', randomHue);
             });
 
-            applyWaveEffect(card, card.querySelectorAll('.bump-word'), {
+            const waveElements = [];
+            if (title) waveElements.push(...title.querySelectorAll('.bump-word'));
+            if (tech) waveElements.push(...tech.querySelectorAll('.bump-word'));
+
+            applyWaveEffect(card, waveElements, {
                 color: 'var(--text)',
                 textShadow: '0 4px 10px hsla(var(--hover-hue, 202), 88%, 72%, 0.4)'
             });
@@ -2553,14 +2595,14 @@ Object.assign(window, {
                 const rect = el.getBoundingClientRect();
                 const x = e.clientX - rect.left - rect.width / 2;
                 const y = e.clientY - rect.top - rect.height / 2;
-                
+
                 const isBtn = el.classList.contains('btn');
                 el.style.transition = isBtn ? 'background 0.3s, color 0.3s, border-color 0.3s, transform 0.05s linear' : 'color 0.3s, transform 0.05s linear';
                 el.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
             });
             el.addEventListener('mouseleave', () => {
                 el.style.transform = '';
-                el.style.transition = ''; 
+                el.style.transition = '';
             });
         });
 
@@ -2573,18 +2615,18 @@ Object.assign(window, {
                 const y = e.clientY - rect.top;
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
-                
-                const rotateX = ((y - centerY) / centerY) * -10; 
+
+                const rotateX = ((y - centerY) / centerY) * -10;
                 const rotateY = ((x - centerX) / centerX) * 10;
-                
+
                 card.style.transition = 'box-shadow 0.6s ease, border-color 0.6s ease, background 0.6s ease, transform 0.1s ease-out';
                 card.style.setProperty('transform', `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.08) translateY(-8px)`, 'important');
                 card.style.zIndex = '10';
             });
-            
+
             card.addEventListener('mouseleave', () => {
                 card.style.removeProperty('transform');
-                card.style.transition = ''; 
+                card.style.transition = '';
                 card.style.zIndex = '';
             });
         });
@@ -2621,11 +2663,11 @@ Object.assign(window, {
         window.addEventListener('scroll', () => {
             const scrubWords = document.querySelectorAll('.scrub-word');
             if (scrubWords.length === 0) return;
-            
+
             const viewportHeight = window.innerHeight;
             const revealPoint = viewportHeight * 0.85;
             const fadePoint = viewportHeight * 0.95;
-            
+
             scrubWords.forEach(span => {
                 const rect = span.getBoundingClientRect();
                 if (rect.top < revealPoint) {
@@ -2637,7 +2679,9 @@ Object.assign(window, {
                     span.style.opacity = '0.2';
                 }
             });
-        }, {passive: true});
+        }, {
+            passive: true
+        });
 
         // --- Effect 7: Terminal / Typewriter Subtitles (Portfolio & Research) ---
         const heroIntro = document.querySelector('.hero-intro');
@@ -2645,11 +2689,11 @@ Object.assign(window, {
             const text = 'Portfolio & Research';
             heroIntro.innerHTML = '<span class="type-wrap"></span>';
             const typeWrap = heroIntro.querySelector('.type-wrap');
-            
+
             typeWrap.style.borderRight = '2px solid var(--text)';
             typeWrap.style.paddingRight = '4px';
             typeWrap.style.animation = 'blink 1s step-end infinite';
-            
+
             if (!document.getElementById('blink-style')) {
                 const style = document.createElement('style');
                 style.id = 'blink-style';
@@ -2659,7 +2703,7 @@ Object.assign(window, {
 
             let i = 0;
             let isDeleting = false;
-            
+
             function typeWriterLoop() {
                 const currentText = text.substring(0, i);
                 typeWrap.textContent = currentText;
@@ -2667,11 +2711,11 @@ Object.assign(window, {
                 let typeSpeed = isDeleting ? 40 : 100;
 
                 if (!isDeleting && i === text.length) {
-                    typeSpeed = 2500; 
+                    typeSpeed = 2500;
                     isDeleting = true;
                 } else if (isDeleting && i === 0) {
                     isDeleting = false;
-                    typeSpeed = 800; 
+                    typeSpeed = 800;
                 }
 
                 if (isDeleting) {
@@ -2694,7 +2738,56 @@ Object.assign(window, {
                 const progress = (scrollTop / scrollHeight) * 100;
                 scrollProgress.style.width = progress + '%';
             }
-        }, {passive: true});
+        }, {
+            passive: true
+        });
+
+        // --- Hover Image Reveal for Projects ---
+        const previewImg = document.createElement('img');
+        previewImg.className = 'project-preview-img';
+        document.body.appendChild(previewImg);
+
+        let previewActive = false;
+
+        document.querySelectorAll('.project-card').forEach(card => {
+            const githubLink = Array.from(card.querySelectorAll('a')).find(a => a.href.includes('github.com') && !a.href.includes('stars'));
+            if (githubLink) {
+                const urlParts = githubLink.href.split('github.com/')[1];
+                if (urlParts) {
+                    const cleanPath = urlParts.split('?')[0].replace(/\/$/, '');
+                    const imageUrl = `https://opengraph.githubassets.com/1/${cleanPath}`;
+
+                    card.addEventListener('mouseenter', () => {
+                        previewImg.src = imageUrl;
+                        previewActive = true;
+                        previewImg.classList.add('active');
+                    });
+
+                    card.addEventListener('mouseleave', () => {
+                        previewActive = false;
+                        previewImg.classList.remove('active');
+                    });
+                }
+            }
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (previewActive) {
+                let posX = e.clientX + 20;
+                let posY = e.clientY + 20;
+
+                // Keep inside viewport bounds
+                if (posX + 320 > window.innerWidth) {
+                    posX = e.clientX - 340;
+                }
+                if (posY + 168 > window.innerHeight) {
+                    posY = e.clientY - 188;
+                }
+
+                previewImg.style.left = posX + 'px';
+                previewImg.style.top = posY + 'px';
+            }
+        });
 
         resizeNetworkCanvas();
         animateNetwork();
