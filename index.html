@@ -501,7 +501,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: 42% 20%;
+            object-position: 43% 20%;
             filter: var(--photo-filter, grayscale(100%) contrast(1.1));
             transition: filter 0.6s, transform 1.2s var(--ease);
         }
@@ -2334,6 +2334,268 @@ Object.assign(window, {
                 document.body.classList.toggle('light-theme');
             });
         }
+
+        // --- Neural Network Canvas Effect ---
+        const networkCanvas = document.createElement('canvas');
+        networkCanvas.id = 'network-canvas';
+        networkCanvas.style.position = 'fixed';
+        networkCanvas.style.top = '0';
+        networkCanvas.style.left = '0';
+        networkCanvas.style.width = '100%';
+        networkCanvas.style.height = '100%';
+        networkCanvas.style.pointerEvents = 'none';
+        networkCanvas.style.zIndex = '-1';
+        document.body.insertBefore(networkCanvas, document.body.firstChild);
+
+        const ctx = networkCanvas.getContext('2d');
+        let networkWidth, networkHeight;
+        let particles = [];
+        const networkMouse = {
+            x: -1000,
+            y: -1000
+        };
+
+        function resizeNetworkCanvas() {
+            networkWidth = window.innerWidth;
+            networkHeight = window.innerHeight;
+            networkCanvas.width = networkWidth;
+            networkCanvas.height = networkHeight;
+            initParticles();
+        }
+
+        window.addEventListener('resize', resizeNetworkCanvas);
+
+        document.addEventListener('mousemove', (e) => {
+            networkMouse.x = e.clientX;
+            networkMouse.y = e.clientY;
+        });
+
+        document.addEventListener('mouseleave', () => {
+            networkMouse.x = -1000;
+            networkMouse.y = -1000;
+        });
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * networkWidth;
+                this.y = Math.random() * networkHeight;
+                this.vx = (Math.random() - 0.5) * 0.6;
+                this.vy = (Math.random() - 0.5) * 0.6;
+                this.radius = Math.random() * 1.5 + 0.5;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > networkWidth) this.vx = -this.vx;
+                if (this.y < 0 || this.y > networkHeight) this.vy = -this.vy;
+            }
+
+            draw(isLight) {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = isLight ? 'rgba(17, 17, 17, 0.6)' : 'rgba(229, 229, 229, 0.6)';
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            const particleCount = Math.floor((networkWidth * networkHeight) / 12000); // Adjust density
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animateNetwork() {
+            ctx.clearRect(0, 0, networkWidth, networkHeight);
+            const isLight = document.body.classList.contains('light-theme');
+            const rgb = isLight ? '17, 17, 17' : '229, 229, 229';
+
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw(isLight);
+
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 120) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(${rgb}, ${(1 - distance / 120) * 0.15})`;
+                        ctx.lineWidth = 0.6;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+
+                const dxMouse = particles[i].x - networkMouse.x;
+                const dyMouse = particles[i].y - networkMouse.y;
+                const distanceMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+
+                if (distanceMouse < 150) {
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(${rgb}, ${(1 - distanceMouse / 150) * 0.3})`;
+                    ctx.lineWidth = 1;
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(networkMouse.x, networkMouse.y);
+                    ctx.stroke();
+
+                    // Slightly attract nodes to mouse
+                    const force = (150 - distanceMouse) / 150;
+                    particles[i].x -= (dxMouse / distanceMouse) * force * 0.5;
+                    particles[i].y -= (dyMouse / distanceMouse) * force * 0.5;
+                }
+            }
+            requestAnimationFrame(animateNetwork);
+        }
+
+        // --- Effect 1: Magnetic Elements ---
+        const magneticElements = document.querySelectorAll('.btn, .social-icon');
+        magneticElements.forEach(el => {
+            el.addEventListener('mousemove', (e) => {
+                const rect = el.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+
+                const isBtn = el.classList.contains('btn');
+                el.style.transition = isBtn ? 'background 0.3s, color 0.3s, border-color 0.3s, transform 0.05s linear' : 'color 0.3s, transform 0.05s linear';
+                el.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+            });
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = '';
+                el.style.transition = '';
+            });
+        });
+
+        // --- Effect 3: Mouse-Tracking 3D Card Tilt (Memberships) ---
+        const affiliationCards = document.querySelectorAll('.affiliation-card');
+        affiliationCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = ((y - centerY) / centerY) * -10;
+                const rotateY = ((x - centerX) / centerX) * 10;
+
+                card.style.transition = 'box-shadow 0.6s ease, border-color 0.6s ease, background 0.6s ease, transform 0.1s ease-out';
+                card.style.setProperty('transform', `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.08) translateY(-8px)`, 'important');
+                card.style.zIndex = '10';
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.removeProperty('transform');
+                card.style.transition = '';
+                card.style.zIndex = '';
+            });
+        });
+
+        // --- Effect 4: Scroll-Scrubbed Text Reveal (About Section) ---
+        function wrapWordsPreservingHTML(node) {
+            if (node.nodeType === Node.TEXT_NODE) {
+                const text = node.nodeValue;
+                if (!text.trim()) return;
+                const words = text.split(/(\s+)/);
+                const fragment = document.createDocumentFragment();
+                words.forEach(word => {
+                    if (word.trim()) {
+                        const span = document.createElement('span');
+                        span.textContent = word;
+                        span.className = 'scrub-word';
+                        span.style.opacity = '0.2';
+                        span.style.transition = 'opacity 0.2s';
+                        fragment.appendChild(span);
+                    } else {
+                        fragment.appendChild(document.createTextNode(word));
+                    }
+                });
+                node.parentNode.replaceChild(fragment, node);
+            } else if (node.nodeType === Node.ELEMENT_NODE) {
+                Array.from(node.childNodes).forEach(wrapWordsPreservingHTML);
+            }
+        }
+
+        document.querySelectorAll('.about-text p, .stat-item p').forEach(p => {
+            Array.from(p.childNodes).forEach(wrapWordsPreservingHTML);
+        });
+
+        window.addEventListener('scroll', () => {
+            const scrubWords = document.querySelectorAll('.scrub-word');
+            if (scrubWords.length === 0) return;
+
+            const viewportHeight = window.innerHeight;
+            const revealPoint = viewportHeight * 0.85;
+            const fadePoint = viewportHeight * 0.95;
+
+            scrubWords.forEach(span => {
+                const rect = span.getBoundingClientRect();
+                if (rect.top < revealPoint) {
+                    span.style.opacity = '1';
+                } else if (rect.top < fadePoint) {
+                    const opacity = 1 - ((rect.top - revealPoint) / (fadePoint - revealPoint)) * 0.8;
+                    span.style.opacity = Math.max(0.2, opacity).toString();
+                } else {
+                    span.style.opacity = '0.2';
+                }
+            });
+        }, {
+            passive: true
+        });
+
+        // --- Effect 7: Terminal / Typewriter Subtitles (Portfolio & Research) ---
+        const heroIntro = document.querySelector('.hero-intro');
+        if (heroIntro && heroIntro.textContent.includes('Portfolio & Research')) {
+            const text = 'Portfolio & Research';
+            heroIntro.innerHTML = '<span class="type-wrap"></span>';
+            const typeWrap = heroIntro.querySelector('.type-wrap');
+
+            typeWrap.style.borderRight = '2px solid var(--text)';
+            typeWrap.style.paddingRight = '4px';
+            typeWrap.style.animation = 'blink 1s step-end infinite';
+
+            if (!document.getElementById('blink-style')) {
+                const style = document.createElement('style');
+                style.id = 'blink-style';
+                style.innerHTML = `@keyframes blink { 0%, 100% { border-color: transparent; } 50% { border-color: var(--text); } }`;
+                document.head.appendChild(style);
+            }
+
+            let i = 0;
+            let isDeleting = false;
+
+            function typeWriterLoop() {
+                const currentText = text.substring(0, i);
+                typeWrap.textContent = currentText;
+
+                let typeSpeed = isDeleting ? 40 : 100;
+
+                if (!isDeleting && i === text.length) {
+                    typeSpeed = 2500;
+                    isDeleting = true;
+                } else if (isDeleting && i === 0) {
+                    isDeleting = false;
+                    typeSpeed = 800;
+                }
+
+                if (isDeleting) {
+                    i--;
+                } else {
+                    i++;
+                }
+
+                setTimeout(typeWriterLoop, typeSpeed);
+            }
+            setTimeout(typeWriterLoop, 500);
+        }
+
+        resizeNetworkCanvas();
+        animateNetwork();
     </script>
 
 
