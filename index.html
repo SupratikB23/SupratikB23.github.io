@@ -38,6 +38,32 @@
             --card-bg: rgba(0, 0, 0, 0.03);
         }
 
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 14px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #080808;
+        }
+        html.light-theme ::-webkit-scrollbar-track {
+            background: #FAFAFA;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e5e5e5;
+            border-radius: 7px;
+            border: 3px solid #080808;
+        }
+        html.light-theme ::-webkit-scrollbar-thumb {
+            background: #111111;
+            border: 3px solid #FAFAFA;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ffffff;
+        }
+        html.light-theme ::-webkit-scrollbar-thumb:hover {
+            background: #000000;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -1112,11 +1138,59 @@
             transform: translateY(0);
             opacity: 1;
         }
+
+        /* ===== MARQUEE ===== */
+        .marquee-strip {
+            width: 100%;
+            overflow: hidden;
+            background: var(--text);
+            color: var(--bg);
+            padding: 14px 0;
+            white-space: nowrap;
+            position: relative;
+            transform: rotate(-1.5deg) scale(1.02);
+            margin: 0;
+            z-index: 10;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 25s linear infinite;
+        }
+
+        .marquee-content span {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-weight: 600;
+            font-size: 1.3rem;
+            margin-right: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ===== SCROLL PROGRESS ===== */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 1px;
+            background: var(--muted);
+            width: 0%;
+            z-index: 10000;
+            pointer-events: none;
+        }
     </style>
     <link id="gfont-Inter" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap">
 </head>
 
 <body class="">
+    <div id="scroll-progress"></div>
     <div class="cursor-dot" style="left: 986px; top: 164px;"></div>
     <div class="cursor-circle" style="left: 986px; top: 164px;"></div>
 
@@ -1260,6 +1334,24 @@
                 </div>
             </div>
         </section>
+
+        <!-- MARQUEE STRIP -->
+        <div class="marquee-strip">
+            <div class="marquee-content">
+                <span> Neural Networks</span>
+                <span> Open Source</span>
+                <span> Deep Learning</span>
+                <span> Reinforcement Learning</span>
+                <span> LLMs</span>
+                <span> Computer Vision</span>
+                <span> Neural Networks</span>
+                <span> Open Source</span>
+                <span> Deep Learning</span>
+                <span> Reinforcement Learning</span>
+                <span> LLMs</span>
+                <span> Computer Vision</span>
+            </div>
+        </div>
 
         <!-- EDUCATION -->
         <section id="education" class="container">
@@ -2332,6 +2424,7 @@ Object.assign(window, {
         if (themeToggleBtn) {
             themeToggleBtn.addEventListener('click', () => {
                 document.body.classList.toggle('light-theme');
+                document.documentElement.classList.toggle('light-theme');
             });
         }
 
@@ -2460,14 +2553,14 @@ Object.assign(window, {
                 const rect = el.getBoundingClientRect();
                 const x = e.clientX - rect.left - rect.width / 2;
                 const y = e.clientY - rect.top - rect.height / 2;
-
+                
                 const isBtn = el.classList.contains('btn');
                 el.style.transition = isBtn ? 'background 0.3s, color 0.3s, border-color 0.3s, transform 0.05s linear' : 'color 0.3s, transform 0.05s linear';
                 el.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
             });
             el.addEventListener('mouseleave', () => {
                 el.style.transform = '';
-                el.style.transition = '';
+                el.style.transition = ''; 
             });
         });
 
@@ -2480,18 +2573,18 @@ Object.assign(window, {
                 const y = e.clientY - rect.top;
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
-
-                const rotateX = ((y - centerY) / centerY) * -10;
+                
+                const rotateX = ((y - centerY) / centerY) * -10; 
                 const rotateY = ((x - centerX) / centerX) * 10;
-
+                
                 card.style.transition = 'box-shadow 0.6s ease, border-color 0.6s ease, background 0.6s ease, transform 0.1s ease-out';
                 card.style.setProperty('transform', `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.08) translateY(-8px)`, 'important');
                 card.style.zIndex = '10';
             });
-
+            
             card.addEventListener('mouseleave', () => {
                 card.style.removeProperty('transform');
-                card.style.transition = '';
+                card.style.transition = ''; 
                 card.style.zIndex = '';
             });
         });
@@ -2528,11 +2621,11 @@ Object.assign(window, {
         window.addEventListener('scroll', () => {
             const scrubWords = document.querySelectorAll('.scrub-word');
             if (scrubWords.length === 0) return;
-
+            
             const viewportHeight = window.innerHeight;
             const revealPoint = viewportHeight * 0.85;
             const fadePoint = viewportHeight * 0.95;
-
+            
             scrubWords.forEach(span => {
                 const rect = span.getBoundingClientRect();
                 if (rect.top < revealPoint) {
@@ -2544,9 +2637,7 @@ Object.assign(window, {
                     span.style.opacity = '0.2';
                 }
             });
-        }, {
-            passive: true
-        });
+        }, {passive: true});
 
         // --- Effect 7: Terminal / Typewriter Subtitles (Portfolio & Research) ---
         const heroIntro = document.querySelector('.hero-intro');
@@ -2554,11 +2645,11 @@ Object.assign(window, {
             const text = 'Portfolio & Research';
             heroIntro.innerHTML = '<span class="type-wrap"></span>';
             const typeWrap = heroIntro.querySelector('.type-wrap');
-
+            
             typeWrap.style.borderRight = '2px solid var(--text)';
             typeWrap.style.paddingRight = '4px';
             typeWrap.style.animation = 'blink 1s step-end infinite';
-
+            
             if (!document.getElementById('blink-style')) {
                 const style = document.createElement('style');
                 style.id = 'blink-style';
@@ -2568,7 +2659,7 @@ Object.assign(window, {
 
             let i = 0;
             let isDeleting = false;
-
+            
             function typeWriterLoop() {
                 const currentText = text.substring(0, i);
                 typeWrap.textContent = currentText;
@@ -2576,11 +2667,11 @@ Object.assign(window, {
                 let typeSpeed = isDeleting ? 40 : 100;
 
                 if (!isDeleting && i === text.length) {
-                    typeSpeed = 2500;
+                    typeSpeed = 2500; 
                     isDeleting = true;
                 } else if (isDeleting && i === 0) {
                     isDeleting = false;
-                    typeSpeed = 800;
+                    typeSpeed = 800; 
                 }
 
                 if (isDeleting) {
@@ -2593,6 +2684,17 @@ Object.assign(window, {
             }
             setTimeout(typeWriterLoop, 500);
         }
+
+        // --- Scroll Progress Indicator ---
+        const scrollProgress = document.getElementById('scroll-progress');
+        window.addEventListener('scroll', () => {
+            if (scrollProgress) {
+                const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const progress = (scrollTop / scrollHeight) * 100;
+                scrollProgress.style.width = progress + '%';
+            }
+        }, {passive: true});
 
         resizeNetworkCanvas();
         animateNetwork();
