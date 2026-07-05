@@ -1219,6 +1219,168 @@
             opacity: 1;
             transform: scale(1);
         }
+
+        /* Contact Modal Styles */
+        .contact-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s var(--ease);
+            z-index: 100000;
+        }
+
+        body.light-theme .contact-modal-overlay {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .contact-modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .contact-modal {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: clamp(24px, 4vw, 44px);
+            width: min(90vw, 520px);
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: scale(0.9) translateY(30px);
+            transition: transform 0.5s var(--ease);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4);
+            position: relative;
+        }
+
+        body.light-theme .contact-modal {
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-modal-overlay.active .contact-modal {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .modal-header h3 {
+            font-size: 2.2rem;
+            font-style: italic;
+            margin: 0;
+            line-height: 1.1;
+        }
+
+        .modal-close-btn {
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            cursor: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            font-size: 0.9rem;
+            transition: border-color 0.3s, background 0.3s, transform 0.3s;
+        }
+
+        .modal-close-btn:hover {
+            border-color: var(--text);
+            background: rgba(255, 255, 255, 0.05);
+            transform: rotate(90deg);
+        }
+
+        body.light-theme .modal-close-btn:hover {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            border-radius: 10px;
+            outline: none;
+            transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--text);
+            background: rgba(255, 255, 255, 0.03);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.02);
+        }
+
+        body.light-theme .form-group input:focus,
+        body.light-theme .form-group textarea:focus {
+            background: rgba(0, 0, 0, 0.01);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.01);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-status-msg {
+            margin-top: 15px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            text-align: center;
+            transition: color 0.3s;
+        }
+
+        .form-status-msg.success {
+            color: #00E676;
+        }
+
+        .form-status-msg.error {
+            color: #FF2A2A;
+        }
+
+        .contact-modal::-webkit-scrollbar {
+            width: 8px;
+        }
+        .contact-modal::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .contact-modal::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 4px;
+        }
     </style>
     <link id="gfont-Inter" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap">
 </head>
@@ -1601,7 +1763,7 @@
         <section id="contact" class="container contact-section in-view">
             <h2>Let's Create Together</h2>
             <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</p>
-            <a href="mailto:supratikbhowal23@gmail.com" class="btn" style="margin-top: 24px;">supratikbhowal23@gmail.com</a>
+            <button id="open-contact-modal" class="btn" style="margin-top: 24px;">Send Email</button>
         </section>
     </main>
 
@@ -1610,6 +1772,44 @@
             <p>© <span id="year">2026</span> Supratik Bhowal</p>
         </div>
     </footer>
+
+    <!-- CONTACT MODAL -->
+    <div id="contact-modal" class="contact-modal-overlay" aria-hidden="true">
+        <div class="contact-modal">
+            <div class="modal-header">
+                <h3>Send a Message</h3>
+                <button id="modal-close" class="modal-close-btn" aria-label="Close Modal">✕</button>
+            </div>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="form-name">Name</label>
+                    <input type="text" id="form-name" name="name" required placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <label for="form-email">Email</label>
+                    <input type="email" id="form-email" name="email" required placeholder="your.email@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="form-subject">Subject</label>
+                    <input type="text" id="form-subject" name="subject" required placeholder="What is this about?">
+                </div>
+                <div class="form-group">
+                    <label for="form-message">Message</label>
+                    <textarea id="form-message" name="message" required placeholder="Write your message here..."></textarea>
+                </div>
+                <!-- Antispam honey pot field from FormSubmit -->
+                <input type="text" name="_honey" style="display:none">
+                <!-- Disable captcha for API -->
+                <input type="hidden" name="_captcha" value="false">
+                
+                <button type="submit" class="btn submit-btn" style="width: 100%; margin-top: 10px;">
+                    <span class="btn-text">Send Mail</span>
+                    <span class="btn-loader" style="display: none;">Sending...</span>
+                </button>
+                <div id="form-status" class="form-status-msg"></div>
+            </form>
+        </div>
+    </div>
 
     <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
@@ -2795,10 +2995,147 @@ Object.assign(window, {
             }
         });
 
+        // --- Effect: Contact Modal Interactive Functionality ---
+        const contactModal = document.getElementById('contact-modal');
+        const openModalBtn = document.getElementById('open-contact-modal');
+        const closeModalBtn = document.getElementById('modal-close');
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+        const submitBtnText = document.querySelector('.submit-btn .btn-text');
+        const submitBtnLoader = document.querySelector('.submit-btn .btn-loader');
+
+        const openModal = () => {
+            if (contactModal) {
+                contactModal.classList.add('active');
+                contactModal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            }
+        };
+
+        const closeModal = () => {
+            if (contactModal) {
+                contactModal.classList.remove('active');
+                contactModal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                if (formStatus) {
+                    formStatus.textContent = '';
+                    formStatus.className = 'form-status-msg';
+                }
+            }
+        };
+
+        if (openModalBtn) {
+            openModalBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal();
+            });
+        }
+
+        // Also route any mailto: link to open the modal
+        document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal();
+            });
+        });
+
+        if (closeModalBtn) {
+            closeModalBtn.addEventListener('click', closeModal);
+        }
+
+        if (contactModal) {
+            contactModal.addEventListener('click', (e) => {
+                if (e.target === contactModal) {
+                    closeModal();
+                }
+            });
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && contactModal && contactModal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        // Attach custom cursor behaviors to modal input fields and buttons
+        document.querySelectorAll('.contact-modal input, .contact-modal textarea, .modal-close-btn').forEach(el => {
+            el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+            el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+        });
+
+        // Magnetize close button
+        if (closeModalBtn) {
+            closeModalBtn.addEventListener('mousemove', (e) => {
+                const rect = closeModalBtn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                closeModalBtn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+            });
+            closeModalBtn.addEventListener('mouseleave', () => {
+                closeModalBtn.style.transform = '';
+            });
+        }
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                if (submitBtnText && submitBtnLoader) {
+                    submitBtnText.style.display = 'none';
+                    submitBtnLoader.style.display = 'inline';
+                }
+                if (formStatus) {
+                    formStatus.textContent = '';
+                    formStatus.className = 'form-status-msg';
+                }
+
+                const formData = new FormData(contactForm);
+                const data = {};
+                formData.forEach((value, key) => data[key] = value);
+
+                fetch('https://formsubmit.co/ajax/supratikbhowal23@gmail.com', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Network response was not ok.');
+                    }
+                })
+                .then(resData => {
+                    if (submitBtnText && submitBtnLoader) {
+                        submitBtnText.style.display = 'inline';
+                        submitBtnLoader.style.display = 'none';
+                    }
+                    if (formStatus) {
+                        formStatus.textContent = 'Message sent successfully! Thank you.';
+                        formStatus.className = 'form-status-msg success';
+                    }
+                    contactForm.reset();
+                    setTimeout(closeModal, 2500);
+                })
+                .catch(error => {
+                    if (submitBtnText && submitBtnLoader) {
+                        submitBtnText.style.display = 'inline';
+                        submitBtnLoader.style.display = 'none';
+                    }
+                    if (formStatus) {
+                        formStatus.textContent = 'Oops! Something went wrong. Please try again.';
+                        formStatus.className = 'form-status-msg error';
+                    }
+                });
+            });
+        }
+
         resizeNetworkCanvas();
         animateNetwork();
     </script>
-
 
 </body>
 
